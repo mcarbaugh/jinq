@@ -7,7 +7,7 @@ interface JinqEnumerable<T> {
     thenByDescending(lambda: Lambda<T>): JinqEnumerable<T>;
     where(lambda: Lambda<T>): JinqEnumerable<T>;
     remove(lambda: Lambda<T>): JinqEnumerable<T>;
-    select(lambda: Lambda<T>): JinqEnumerable<T>;
+    select(lambda: Lambda<T>): JinqEnumerable<string | number | boolean | object>;
     toArray(): T[];
 }
 
