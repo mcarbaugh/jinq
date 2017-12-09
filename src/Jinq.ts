@@ -1,7 +1,7 @@
-import ComparatorHelper from "./utilities/ComparatorHelper";
-import Comparator from "./interfaces/Comparator";
-import JinqEnumerable from "./interfaces/JinqEnumerable";
-import Lambda from "./interfaces/Lambda";
+import ComparatorHelper from './utilities/ComparatorHelper';
+import Comparator from './interfaces/Comparator';
+import JinqEnumerable from './interfaces/JinqEnumerable';
+import Lambda from './interfaces/Lambda';
 
 export default class Jinq<T> implements JinqEnumerable<T> {
     private collection: T[];
@@ -40,9 +40,6 @@ export default class Jinq<T> implements JinqEnumerable<T> {
     }
 
     public thenBy(lambda: Lambda<T>) {
-        if (!this.composedComparator) {
-            return;
-        }
         this.composedComparator = ComparatorHelper.composeComparators(
             this.composedComparator,
             (x: T, y: T) => {
@@ -55,14 +52,10 @@ export default class Jinq<T> implements JinqEnumerable<T> {
                 return 0;
             },
         );
-
         return this;
     }
 
     public thenByDescending(lambda: Lambda<T>) {
-        if (!this.composedComparator) {
-            return;
-        }
         this.composedComparator = ComparatorHelper.composeComparators(
             this.composedComparator,
             (x: T, y: T) => {
@@ -75,7 +68,6 @@ export default class Jinq<T> implements JinqEnumerable<T> {
                 return 0;
             },
         );
-
         return this;
     }
 
@@ -84,8 +76,31 @@ export default class Jinq<T> implements JinqEnumerable<T> {
         if (comparator) {
             this.collection.sort(comparator);
         }
-
         return new Jinq(this.collection);
+    }
+
+    public where(lambda: Lambda<T>) {
+        return new Jinq(this.collection
+            .filter(x => {
+                return lambda(x);
+            })
+        );
+    }
+
+    public remove(lambda: Lambda<T>) {
+        return new Jinq(this.collection
+            .filter(x => {
+                return(!lambda(x));
+            })
+        );
+    }
+
+    public select(lambda: Lambda<T>) {
+        return new Jinq(this.collection
+            .map(x => {
+                return lambda(x);
+            })
+        );
     }
 
     public toArray() {
