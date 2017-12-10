@@ -72,39 +72,42 @@ export default class Jinq<T> implements JinqEnumerable<T> {
         );
     }
 
-    public count(lambda: Lambda<T>) {
-        return this.collection
-            .filter(x => {
-                return lambda(x);
-            })
-            .length;
+    public count(lambda?: Lambda<T>) {
+        return (!lambda) 
+            ? this.collection.length 
+            : this.collection
+                .filter(x => {
+                    return lambda(x);
+                })
+                .length;
     }
 
     public sum() {
-        let sum = 0;
+        let sum: number;
         for (const value of this.collection) {
             if (typeof value === "number") {
-                sum = sum + value;
+                sum = (sum) ? sum + value : value;
             } else {
-                sum = 0;
+                sum = undefined;
                 break;
             }
         }
 
-        return sum;
+        return sum || -1;
     }
 
     public min() {
-        let min;
+        let min: number;
         for (const value of this.collection) {
             if (typeof value === "number") {
                 min = (min) ? Math.min(min, value) : value;
             } else {
+                min = undefined;
                 break;
             }
         }
 
-        return min || 0;
+        return min || -1;
     }
 
     public max() {
@@ -113,11 +116,12 @@ export default class Jinq<T> implements JinqEnumerable<T> {
             if (typeof value === "number") {
                 max = (max) ? Math.max(max, value) : value;
             } else {
+                max = undefined;
                 break;
             }
         }
 
-        return max || 0;
+        return max || -1;
     }
 
     public average() {

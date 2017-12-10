@@ -8,7 +8,7 @@ interface JinqEnumerable<T> {
     where(lambda: Lambda<T>): JinqEnumerable<T>;
     remove(lambda: Lambda<T>): JinqEnumerable<T>;
     select(lambda: Lambda<T>): JinqEnumerable<number | string | boolean | object | void>;
-    count(lambda: Lambda<T>): number;
+    count(lambda?: Lambda<T>): number;
     sum(): number;
     min(): number;
     max(): number;
