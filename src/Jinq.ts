@@ -83,48 +83,51 @@ export default class Jinq<T> implements JinqEnumerable<T> {
     }
 
     public sum() {
-        let sum: number;
-        for (const value of this.collection) {
-            if (typeof value === "number") {
-                sum = (sum) ? sum + value : value;
-            } else {
-                sum = undefined;
-                break;
-            }
-        }
+        let sum = 0;
+        this.collection
+            .every((value: T, index: number) => {
+                if (typeof value === 'number') {
+                    sum = sum + value;
+                } else {
+                    return false;
+                }
+                return true;
+            });
 
-        return sum || -1;
+        return sum;
     }
 
     public min() {
-        let min: number;
-        for (const value of this.collection) {
-            if (typeof value === "number") {
-                min = (min) ? Math.min(min, value) : value;
-            } else {
-                min = undefined;
-                break;
-            }
-        }
+        let min: number | undefined;
+        this.collection
+            .every((value: T, index: number) => {
+                if (typeof value === 'number') {
+                    min = min ? Math.min(min, value) : value;
+                } else {
+                    return false;
+                }
+                return true;
+            });
 
-        return min || -1;
+        return min;
     }
 
     public max() {
-        let max;
-        for (const value of this.collection) {
-            if (typeof value === "number") {
-                max = (max) ? Math.max(max, value) : value;
-            } else {
-                max = undefined;
-                break;
-            }
-        }
+        let max: number | undefined;
+        this.collection
+            .every((value: T, index: number) => {
+                if (typeof value === 'number') {
+                    max = max ? Math.max(max, value) : value;
+                } else {
+                    return false;
+                }
+                return true;
+            });
 
-        return max || -1;
+        return max;
     }
 
-    public average() {
+    public avg() {
         return (this.sum() / this.collection.length);
     }
 
