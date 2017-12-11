@@ -87,11 +87,11 @@ export default class Jinq<T> implements JinqEnumerable<T> {
         this.collection
             .every((value: T, index: number) => {
                 if (typeof value === 'number') {
-                    sum = sum ? sum + value : value;
+                    sum = (sum !== undefined) ? sum + value : value;
                 } else {
+                    sum = undefined;
                     return false;
                 }
-                sum = undefined;
                 return true;
             });
 
@@ -103,7 +103,7 @@ export default class Jinq<T> implements JinqEnumerable<T> {
         this.collection
             .every((value: T, index: number) => {
                 if (typeof value === 'number') {
-                    min = min ? Math.min(min, value) : value;
+                    min = (min !== undefined) ? Math.min(min, value) : value;
                 } else {
                     min = undefined;
                     return false;
@@ -119,7 +119,7 @@ export default class Jinq<T> implements JinqEnumerable<T> {
         this.collection
             .every((value: T, index: number) => {
                 if (typeof value === 'number') {
-                    max = max ? Math.max(max, value) : value;
+                    max = (max !== undefined) ? Math.max(max, value) : value;
                 } else {
                     max = undefined;
                     return false;
@@ -131,7 +131,8 @@ export default class Jinq<T> implements JinqEnumerable<T> {
     }
 
     public avg() {
-        return (this.sum() / this.collection.length);
+        const sum = this.sum();
+        return (sum !== undefined) ? sum / this.count() : undefined;
     }
 
     public toArray() {
