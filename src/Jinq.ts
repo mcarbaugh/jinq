@@ -91,6 +91,7 @@ export default class Jinq<T> implements JinqEnumerable<T> {
                 } else {
                     return false;
                 }
+                sum = undefined;
                 return true;
             });
 
@@ -104,6 +105,7 @@ export default class Jinq<T> implements JinqEnumerable<T> {
                 if (typeof value === 'number') {
                     min = min ? Math.min(min, value) : value;
                 } else {
+                    min = undefined;
                     return false;
                 }
                 return true;
@@ -119,6 +121,7 @@ export default class Jinq<T> implements JinqEnumerable<T> {
                 if (typeof value === 'number') {
                     max = max ? Math.max(max, value) : value;
                 } else {
+                    max = undefined;
                     return false;
                 }
                 return true;
