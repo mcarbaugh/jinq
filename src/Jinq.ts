@@ -83,11 +83,11 @@ export default class Jinq<T> implements JinqEnumerable<T> {
     }
 
     public sum() {
-        let sum = 0;
+        let sum: number | undefined;
         this.collection
             .every((value: T, index: number) => {
                 if (typeof value === 'number') {
-                    sum = sum + value;
+                    sum = sum ? sum + value : value;
                 } else {
                     return false;
                 }
