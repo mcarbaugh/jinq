@@ -3,8 +3,8 @@ import { Grouping, Lambda } from "../types";
 
 export interface Enumerable<T> {
   append(item: T): Enumerable<T>;
-  sortBy<K>(lambda: Lambda<T, K>): Enumerable<T>;
-  sortByDescending<K>(lambda: Lambda<T, K>): Enumerable<T>;
+  orderBy<K>(lambda: Lambda<T, K>): Enumerable<T>;
+  orderByDescending<K>(lambda: Lambda<T, K>): Enumerable<T>;
   thenBy<K>(lambda: Lambda<T, K>): Enumerable<T>;
   thenByDescending<K>(lambda: Lambda<T, K>): Enumerable<T>;
   where(lambda: Lambda<T, boolean>): Enumerable<T>;

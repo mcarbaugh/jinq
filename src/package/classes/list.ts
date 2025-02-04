@@ -23,14 +23,14 @@ export class List<T> implements Enumerable<T> {
     return new List<T>(this.collection);
   }
 
-  public sortBy<K>(lambda: Lambda<T, K>) {
+  public orderBy<K>(lambda: Lambda<T, K>) {
     return new List(
       this.collection,
       ComparatorHelper.comparatorFactory(lambda, true),
     );
   }
 
-  public sortByDescending<K>(lambda: Lambda<T, K>) {
+  public orderByDescending<K>(lambda: Lambda<T, K>) {
     return new List(
       this.collection,
       ComparatorHelper.comparatorFactory(lambda, false),
