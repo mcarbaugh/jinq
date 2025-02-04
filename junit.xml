@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="jest tests" tests="22" failures="0" errors="0" time="4.713">
+  <testsuite name="jinq" errors="0" failures="0" skipped="0" timestamp="2025-02-04T05:42:58" time="3.125" tests="2">
+    <testcase classname="jinq sortBy() creates and returns a new jinq instance" name="jinq sortBy() creates and returns a new jinq instance" time="0.026">
+    </testcase>
+    <testcase classname="jinq sortBy() sorts the underlying array" name="jinq sortBy() sorts the underlying array" time="0.001">
+    </testcase>
+  </testsuite>
+  <testsuite name="List" errors="0" failures="0" skipped="0" timestamp="2025-02-04T05:42:58" time="3.263" tests="9">
+    <testcase classname="List count() returns length of underlying array with default invocation" name="List count() returns length of underlying array with default invocation" time="0.017">
+    </testcase>
+    <testcase classname="List count() returns 0 for an empty list" name="List count() returns 0 for an empty list" time="0">
+    </testcase>
+    <testcase classname="List count() matches the equivalent .where() chain with predicate invocation" name="List count() matches the equivalent .where() chain with predicate invocation" time="0">
+    </testcase>
+    <testcase classname="List count() accepts a predicate which filters an underlying array of numbers" name="List count() accepts a predicate which filters an underlying array of numbers" time="0.001">
+    </testcase>
+    <testcase classname="List count() accepts a predicate which filters an underlying array of json objects" name="List count() accepts a predicate which filters an underlying array of json objects" time="0.001">
+    </testcase>
+    <testcase classname="List count() returns zero when jinq contains no matching items" name="List count() returns zero when jinq contains no matching items" time="0.001">
+    </testcase>
+    <testcase classname="List count() returns length of the underlying array with a forced truthy predicate" name="List count() returns length of the underlying array with a forced truthy predicate" time="0">
+    </testcase>
+    <testcase classname="List count() returns zero with a forced falsey predicate" name="List count() returns zero with a forced falsey predicate" time="0">
+    </testcase>
+    <testcase classname="List count() chains with .select() statement" name="List count() chains with .select() statement" time="0.001">
+    </testcase>
+  </testsuite>
+  <testsuite name="List" errors="0" failures="0" skipped="0" timestamp="2025-02-04T05:42:58" time="3.213" tests="2">
+    <testcase classname="List toDictionary() converts a list to a dictionary" name="List toDictionary() converts a list to a dictionary" time="0.018">
+    </testcase>
+    <testcase classname="List toDictionary() converts a list to a dictionary with value projection" name="List toDictionary() converts a list to a dictionary with value projection" time="0.001">
+    </testcase>
+  </testsuite>
+  <testsuite name="List" errors="0" failures="0" skipped="0" timestamp="2025-02-04T05:43:01" time="0.242" tests="2">
+    <testcase classname="List max() returns min of underlying array of numbers" name="List max() returns min of underlying array of numbers" time="0.002">
+    </testcase>
+    <testcase classname="List max() returns undefined for an empty list" name="List max() returns undefined for an empty list" time="0">
+    </testcase>
+  </testsuite>
+  <testsuite name="List" errors="0" failures="0" skipped="0" timestamp="2025-02-04T05:43:02" time="0.172" tests="2">
+    <testcase classname="List avg() returns min of underlying array of numbers" name="List avg() returns min of underlying array of numbers" time="0.003">
+    </testcase>
+    <testcase classname="List avg() returns undefined for an empty list" name="List avg() returns undefined for an empty list" time="0">
+    </testcase>
+  </testsuite>
+  <testsuite name="List" errors="0" failures="0" skipped="0" timestamp="2025-02-04T05:43:02" time="0.185" tests="2">
+    <testcase classname="List sum() returns sum of underlying array of numbers" name="List sum() returns sum of underlying array of numbers" time="0.003">
+    </testcase>
+    <testcase classname="List sum() returns undefined for an empty list" name="List sum() returns undefined for an empty list" time="0.001">
+    </testcase>
+  </testsuite>
+  <testsuite name="List" errors="0" failures="0" skipped="0" timestamp="2025-02-04T05:43:02" time="0.159" tests="2">
+    <testcase classname="List min() returns min of underlying array of numbers" name="List min() returns min of underlying array of numbers" time="0.003">
+    </testcase>
+    <testcase classname="List min() returns undefined for an empty list" name="List min() returns undefined for an empty list" time="0">
+    </testcase>
+  </testsuite>
+  <testsuite name="Dictionary" errors="0" failures="0" skipped="0" timestamp="2025-02-04T05:43:02" time="0.163" tests="1">
+    <testcase classname="Dictionary get() throws an error if a key does not exist" name="Dictionary get() throws an error if a key does not exist" time="0.003">
+    </testcase>
+  </testsuite>
+</testsuites>
