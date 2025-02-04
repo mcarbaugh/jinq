@@ -38,6 +38,7 @@ export class List<T> implements Enumerable<T> {
   }
 
   public thenBy<K>(lambda: Lambda<T, K>) {
+    ifThrow(this.composedComparator === null || this.composedComparator === undefined, 'Unable to resolve symbol thenBy.');
     return new List(
       this.collection,
       ComparatorHelper.composeComparators(
@@ -48,6 +49,7 @@ export class List<T> implements Enumerable<T> {
   }
 
   public thenByDescending<K>(lambda: Lambda<T, K>) {
+    ifThrow(this.composedComparator === null || this.composedComparator === undefined, 'Unable to resolve symbol thenByDescending.');
     return new List(
       this.collection,
       ComparatorHelper.composeComparators(

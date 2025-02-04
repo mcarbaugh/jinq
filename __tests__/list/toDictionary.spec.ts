@@ -1,3 +1,4 @@
+import { describe, expect } from '@jest/globals';
 import { List } from "jinq";
 
 describe('List', () => {

@@ -12,7 +12,7 @@
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
     "lint": "eslint \"{src,apps,libs,test}/**/*.ts\" --fix",
     "build": "tsup",
-    "test": "jest --ci --testResultsProcessor='jest-junit'"
+    "test": "tsup & jest --ci --testResultsProcessor='jest-junit'"
   },
   "devDependencies": {
     "@babel/preset-typescript": "^7.26.0",
