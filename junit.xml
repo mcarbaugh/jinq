@@ -1,75 +1,77 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuites name="jest tests" tests="26" failures="0" errors="0" time="11.05">
-  <testsuite name="jinq" errors="0" failures="0" skipped="0" timestamp="2025-02-04T06:33:19" time="3.325" tests="2">
-    <testcase classname="jinq orderBy() creates and returns a new jinq instance" name="jinq orderBy() creates and returns a new jinq instance" time="0.016">
+<testsuites name="jest tests" tests="27" failures="0" errors="0" time="5.336">
+  <testsuite name="jinq" errors="0" failures="0" skipped="0" timestamp="2025-02-04T06:47:00" time="3.327" tests="2">
+    <testcase classname="jinq orderByDescending() creates and returns a new jinq instance" name="jinq orderByDescending() creates and returns a new jinq instance" time="0.016">
     </testcase>
-    <testcase classname="jinq orderBy() sorts the underlying array in ascending order" name="jinq orderBy() sorts the underlying array in ascending order" time="0.002">
-    </testcase>
-  </testsuite>
-  <testsuite name="jinq" errors="0" failures="0" skipped="0" timestamp="2025-02-04T06:33:19" time="3.425" tests="2">
-    <testcase classname="jinq orderByDescending() creates and returns a new jinq instance" name="jinq orderByDescending() creates and returns a new jinq instance" time="0.02">
-    </testcase>
-    <testcase classname="jinq orderByDescending() sorts the underlying array in descending order" name="jinq orderByDescending() sorts the underlying array in descending order" time="0.002">
+    <testcase classname="jinq orderByDescending() sorts the underlying array in descending order" name="jinq orderByDescending() sorts the underlying array in descending order" time="0.003">
     </testcase>
   </testsuite>
-  <testsuite name="List" errors="0" failures="0" skipped="0" timestamp="2025-02-04T06:33:23" time="0.293" tests="9">
-    <testcase classname="List count() returns length of underlying array with default invocation" name="List count() returns length of underlying array with default invocation" time="0.003">
+  <testsuite name="jinq" errors="0" failures="0" skipped="0" timestamp="2025-02-04T06:47:01" time="3.34" tests="2">
+    <testcase classname="jinq orderBy() creates and returns a new jinq instance" name="jinq orderBy() creates and returns a new jinq instance" time="0.014">
+    </testcase>
+    <testcase classname="jinq orderBy() sorts the underlying array in ascending order" name="jinq orderBy() sorts the underlying array in ascending order" time="0.012">
+    </testcase>
+  </testsuite>
+  <testsuite name="List" errors="0" failures="0" skipped="0" timestamp="2025-02-04T06:47:04" time="0.231" tests="9">
+    <testcase classname="List count() returns length of underlying array with default invocation" name="List count() returns length of underlying array with default invocation" time="0.004">
     </testcase>
     <testcase classname="List count() returns 0 for an empty list" name="List count() returns 0 for an empty list" time="0.001">
     </testcase>
-    <testcase classname="List count() matches the equivalent .where() chain with predicate invocation" name="List count() matches the equivalent .where() chain with predicate invocation" time="0.001">
+    <testcase classname="List count() matches the equivalent .where() chain with predicate invocation" name="List count() matches the equivalent .where() chain with predicate invocation" time="0.002">
     </testcase>
-    <testcase classname="List count() accepts a predicate which filters an underlying array of numbers" name="List count() accepts a predicate which filters an underlying array of numbers" time="0.001">
+    <testcase classname="List count() accepts a predicate which filters an underlying array of numbers" name="List count() accepts a predicate which filters an underlying array of numbers" time="0.002">
     </testcase>
-    <testcase classname="List count() accepts a predicate which filters an underlying array of json objects" name="List count() accepts a predicate which filters an underlying array of json objects" time="0.001">
+    <testcase classname="List count() accepts a predicate which filters an underlying array of json objects" name="List count() accepts a predicate which filters an underlying array of json objects" time="0.003">
     </testcase>
     <testcase classname="List count() returns zero when jinq contains no matching items" name="List count() returns zero when jinq contains no matching items" time="0.001">
     </testcase>
     <testcase classname="List count() returns length of the underlying array with a forced truthy predicate" name="List count() returns length of the underlying array with a forced truthy predicate" time="0.001">
     </testcase>
-    <testcase classname="List count() returns zero with a forced falsey predicate" name="List count() returns zero with a forced falsey predicate" time="0.001">
+    <testcase classname="List count() returns zero with a forced falsey predicate" name="List count() returns zero with a forced falsey predicate" time="0.002">
     </testcase>
-    <testcase classname="List count() chains with .select() statement" name="List count() chains with .select() statement" time="0.001">
-    </testcase>
-  </testsuite>
-  <testsuite name="List" errors="0" failures="0" skipped="0" timestamp="2025-02-04T06:33:23" time="0.208" tests="2">
-    <testcase classname="List toDictionary() converts a list to a dictionary" name="List toDictionary() converts a list to a dictionary" time="0.005">
-    </testcase>
-    <testcase classname="List toDictionary() converts a list to a dictionary with value projection" name="List toDictionary() converts a list to a dictionary with value projection" time="0.002">
+    <testcase classname="List count() chains with .select() statement" name="List count() chains with .select() statement" time="0.004">
     </testcase>
   </testsuite>
-  <testsuite name="List" errors="0" failures="0" skipped="0" timestamp="2025-02-04T06:33:23" time="0.192" tests="2">
-    <testcase classname="List max() returns min of underlying array of numbers" name="List max() returns min of underlying array of numbers" time="0.005">
+  <testsuite name="List" errors="0" failures="0" skipped="0" timestamp="2025-02-04T06:47:04" time="0.216" tests="2">
+    <testcase classname="List avg() returns min of underlying array of numbers" name="List avg() returns min of underlying array of numbers" time="0.004">
     </testcase>
-    <testcase classname="List max() returns undefined for an empty list" name="List max() returns undefined for an empty list" time="0.001">
+    <testcase classname="List avg() returns undefined for an empty list" name="List avg() returns undefined for an empty list" time="0.001">
     </testcase>
   </testsuite>
-  <testsuite name="List" errors="0" failures="0" skipped="0" timestamp="2025-02-04T06:33:23" time="0.199" tests="2">
+  <testsuite name="Dictionary" errors="0" failures="0" skipped="0" timestamp="2025-02-04T06:47:04" time="0.239" tests="1">
+    <testcase classname="Dictionary get() throws an error if a key does not exist" name="Dictionary get() throws an error if a key does not exist" time="0.01">
+    </testcase>
+  </testsuite>
+  <testsuite name="List" errors="0" failures="0" skipped="0" timestamp="2025-02-04T06:47:04" time="0.219" tests="2">
     <testcase classname="List sum() returns sum of underlying array of numbers" name="List sum() returns sum of underlying array of numbers" time="0.003">
     </testcase>
     <testcase classname="List sum() returns undefined for an empty list" name="List sum() returns undefined for an empty list" time="0.001">
     </testcase>
   </testsuite>
-  <testsuite name="Dictionary" errors="0" failures="0" skipped="0" timestamp="2025-02-04T06:33:23" time="0.224" tests="1">
-    <testcase classname="Dictionary get() throws an error if a key does not exist" name="Dictionary get() throws an error if a key does not exist" time="0.007">
-    </testcase>
-  </testsuite>
-  <testsuite name="List" errors="0" failures="0" skipped="0" timestamp="2025-02-04T06:33:23" time="0.241" tests="2">
-    <testcase classname="List min() returns min of underlying array of numbers" name="List min() returns min of underlying array of numbers" time="0.009">
+  <testsuite name="List" errors="0" failures="0" skipped="0" timestamp="2025-02-04T06:47:04" time="0.196" tests="2">
+    <testcase classname="List min() returns min of underlying array of numbers" name="List min() returns min of underlying array of numbers" time="0.003">
     </testcase>
     <testcase classname="List min() returns undefined for an empty list" name="List min() returns undefined for an empty list" time="0.001">
     </testcase>
   </testsuite>
-  <testsuite name="List" errors="0" failures="0" skipped="0" timestamp="2025-02-04T06:33:23" time="0.193" tests="2">
-    <testcase classname="List avg() returns min of underlying array of numbers" name="List avg() returns min of underlying array of numbers" time="0.003">
+  <testsuite name="List" errors="0" failures="0" skipped="0" timestamp="2025-02-04T06:47:04" time="0.222" tests="2">
+    <testcase classname="List max() returns min of underlying array of numbers" name="List max() returns min of underlying array of numbers" time="0.003">
     </testcase>
-    <testcase classname="List avg() returns undefined for an empty list" name="List avg() returns undefined for an empty list" time="0.001">
+    <testcase classname="List max() returns undefined for an empty list" name="List max() returns undefined for an empty list" time="0.001">
     </testcase>
   </testsuite>
-  <testsuite name="jinq" errors="0" failures="0" skipped="0" timestamp="2025-02-04T06:33:19" time="9.683" tests="2">
-    <testcase classname="jinq thenBy() creates and returns a new jinq instance" name="jinq thenBy() creates and returns a new jinq instance" time="0.012">
+  <testsuite name="List" errors="0" failures="0" skipped="0" timestamp="2025-02-04T06:47:04" time="0.165" tests="2">
+    <testcase classname="List toDictionary() converts a list to a dictionary" name="List toDictionary() converts a list to a dictionary" time="0.003">
     </testcase>
-    <testcase classname="jinq thenBy() throws an error if called in isolation w/o a preceding orderBy()" name="jinq thenBy() throws an error if called in isolation w/o a preceding orderBy()" time="5.244">
+    <testcase classname="List toDictionary() converts a list to a dictionary with value projection" name="List toDictionary() converts a list to a dictionary with value projection" time="0.001">
+    </testcase>
+  </testsuite>
+  <testsuite name="jinq" errors="0" failures="0" skipped="0" timestamp="2025-02-04T06:47:00" time="4.249" tests="3">
+    <testcase classname="jinq thenBy() creates and returns a new jinq instance" name="jinq thenBy() creates and returns a new jinq instance" time="0.013">
+    </testcase>
+    <testcase classname="jinq thenBy() throws an error if called in isolation w/o a preceding orderBy()" name="jinq thenBy() throws an error if called in isolation w/o a preceding orderBy()" time="0.003">
+    </testcase>
+    <testcase classname="jinq thenBy() sorts by an additional field when invoked after .orderBy()" name="jinq thenBy() sorts by an additional field when invoked after .orderBy()" time="0.001">
     </testcase>
   </testsuite>
 </testsuites>

@@ -10,11 +10,8 @@ describe('jinq', () => {
         { firstName: 'Jane', lastName: 'Doe', favoriteColor: 'blue' },
       ];
       
-      const a = new List(source);
-      const b = a
-        .orderBy(x => x.lastName)
-        .thenBy((x) => x.firstName);
-
+      const a = new List(source).orderBy(x => x.lastName);
+      const b = a.thenBy((x) => x.firstName);
       return expect(a).not.toBe(b);
     });
     it('throws an error if called in isolation w/o a preceding orderBy()', () => {
@@ -33,6 +30,24 @@ describe('jinq', () => {
         expect(error).toHaveProperty('message', 'Unable to resolve symbol thenBy.');
       }
       expect(threw).toEqual(true);
+    });
+    it('sorts by an additional field when invoked after .orderBy()', () => {
+      const list = new List([
+        { firstName: 'John', lastName: 'Smith', favoriteColor: 'blue' },
+        { firstName: 'Susy', lastName: 'Q', favoriteColor: 'green' },
+        { firstName: 'Jane', lastName: 'Doe', favoriteColor: 'blue' },
+      ]);
+
+      const result = list
+        .orderBy(x => x.favoriteColor)
+        .thenBy(x => x.lastName)
+        .toArray();
+      
+      expect(result).toEqual([
+        { firstName: 'Jane', lastName: 'Doe', favoriteColor: 'blue' },
+        { firstName: 'John', lastName: 'Smith', favoriteColor: 'blue' },
+        { firstName: 'Susy', lastName: 'Q', favoriteColor: 'green' },
+      ]);
     });
   });
 });
