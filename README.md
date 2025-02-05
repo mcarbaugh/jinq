@@ -2,7 +2,7 @@
 
 A LINQ inspired package which aims to extend and/or enhance native javascript data structures.
 
-## Example:
+## Example
 ```ts
 import { List } from "jinq";
 
