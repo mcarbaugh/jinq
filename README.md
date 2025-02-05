@@ -3,7 +3,7 @@
 A LINQ inspired package which aims to extend and/or enhance native javascript data structures.
 
 #### Example Usage:
-```
+```ts
 import { List } from "jinq";
 
 const list = new List([
@@ -20,7 +20,7 @@ console.log(averageAge, minAge, maxAge); // prints 31 20 45
 ```
 
 #### Sorting:
-```
+```ts
 const sorted = list
   .orderBy(item => item.favoriteColor) // applies a primary sort on favoriateColor
   .thenBy(item => item.lastName) // applies a secondary sort on lastName
