@@ -21,27 +21,12 @@ console.log(averageAge, minAge, maxAge); // prints 31 20 45
 
 #### Sorting:
 ```ts
+import { List } from "jinq";
+
 const sorted = list
-  .orderBy(item => item.favoriteColor) // applies a primary sort on favoriateColor
+  .orderBy(item => item.favoriteColor) // applies a primary sort on favoriteColor
   .thenBy(item => item.lastName) // applies a secondary sort on lastName
   .toArray();
 
 console.log(sorted);
 ```
-
-#### Support Methods:
-* orderBy
-* orderByDescending
-* thenBy
-* thenByDescending
-* where
-* remove
-* select
-* count
-* sum
-* min
-* max
-* avg
-* toArray
-
-https://pauloe-me.medium.com/typescript-npm-package-publishing-a-beginners-guide-40b95908e69c
