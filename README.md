@@ -2,7 +2,7 @@
 
 A LINQ inspired package which aims to extend and/or enhance native javascript data structures.
 
-#### Example Usage:
+## Example:
 ```ts
 import { List } from "jinq";
 
@@ -19,9 +19,9 @@ const maxAge = list.max(item => item.age);
 console.log(averageAge, minAge, maxAge); // prints 31 20 45
 ```
 
-### Sorting:
+## Sorting
 
-#### Simple:
+### Simple:
 ```ts
 import { List } from "jinq";
 
@@ -39,7 +39,7 @@ console.log(ascending); // prints 3 6 8 10
 console.log(descending); // prints 10 8 6 3
 ```
 
-#### Objects:
+### Objects:
 ```ts
 import { List } from "jinq";
 
