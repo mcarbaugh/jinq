@@ -1,6 +1,6 @@
 # jinq
 
-A LINQ inspired package which aims to extend and/or enhance native javascript data structures.
+A LINQ inspired package which extends and/or enhances native javascript data structures.
 
 ## Example
 ```ts
