@@ -56,3 +56,31 @@ const sorted = list
 
 console.log(sorted);
 ```
+
+## Grouping
+```ts
+import { List } from "jinq";
+
+const list = new List([
+  { firstName: 'John', lastName: 'Smith', favoriteColor: 'blue', age: 20 },
+  { firstName: 'Susy', lastName: 'Q', favoriteColor: 'green', age: 45 },
+  { firstName: 'Jane', lastName: 'Doe', favoriteColor: 'blue', age: 33 },
+]);
+
+const grouped = list
+  .groupBy(item => item.favoriteColor)
+  .toJSON();
+
+console.log(grouped);
+/***
+ * {
+ *    blue: [
+ *      { firstName: 'John', lastName: 'Smith', favoriteColor: 'blue', age: 20 },
+ *      { firstName: 'Jane', lastName: 'Doe', favoriteColor: 'blue', age: 33 },
+ *    ],
+ *    green: [
+ *      { firstName: 'Susy', lastName: 'Q', favoriteColor: 'green', age: 45 },
+ *    ]
+ * }
+ **/
+```
