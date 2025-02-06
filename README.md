@@ -15,13 +15,14 @@ const list = new List([
 const averageAge = list.average(item => item.age);
 const minAge = list.min(item => item.age);
 const maxAge = list.max(item => item.age);
+const count = list.count(item => item.age >= 33);
 
-console.log(averageAge, minAge, maxAge); // prints 31 20 45
+console.log(averageAge, minAge, maxAge, count); // prints 31 20 45 2
 ```
 
 ## Sorting
 
-### Simple:
+### Example (Array of Numbers)
 ```ts
 import { List } from "jinq";
 
@@ -39,7 +40,7 @@ console.log(ascending); // prints 3 6 8 10
 console.log(descending); // prints 10 8 6 3
 ```
 
-### Objects:
+### Example (Array of Objects)
 ```ts
 import { List } from "jinq";
 
@@ -72,7 +73,7 @@ const grouped = list
   .toJSON();
 
 console.log(grouped);
-/***
+/**
  * {
  *    blue: [
  *      { firstName: 'John', lastName: 'Smith', favoriteColor: 'blue', age: 20 },
@@ -82,5 +83,5 @@ console.log(grouped);
  *      { firstName: 'Susy', lastName: 'Q', favoriteColor: 'green', age: 45 },
  *    ]
  * }
- **/
+ */
 ```
