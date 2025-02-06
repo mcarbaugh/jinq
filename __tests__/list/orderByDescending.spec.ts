@@ -15,5 +15,19 @@ describe('jinq', () => {
       const b = a.orderByDescending((x) => x).toArray();
       return expect(b).toEqual([23, 22, 10, 9, 6, 5, 4]);
     });
+    it('doesn\'t modify the order of the source array', () => {
+      const source = [5, 10, 22, 23, 9, 6, -1];
+      const result = new List(source).orderByDescending(x => x).toArray();
+      expect(source).toEqual([5, 10, 22, 23, 9, 6, -1]); // sort order is not applied to the original array
+      expect(result).toEqual([23, 22, 10, 9, 6, 5, -1]); // sort order is applied to the new list
+      expect(source).not.toBe(result);                  // a new array is return from toArray
+    })
+    it('handles an empty array', () => {
+      const source = [];
+      const result = new List(source).orderByDescending(x => x).toArray();
+      expect(source).toEqual([]);      // sort order is not applied to the original array
+      expect(result).toEqual([]);      // sort order is applied to the new list
+      expect(source).not.toBe(result); // a new array is return from toArray
+    })
   });
 });
