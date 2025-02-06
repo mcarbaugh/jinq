@@ -1,61 +1,34 @@
-import { Enumerable } from '../interfaces/enumerable.interface';
-import { Comparator, Grouping, Lambda } from '../types';
+import { IEnumerable } from '../interfaces/enumerable.interface';
+import { Grouping, Lambda } from '../types';
 import { ComparatorHelper } from '../utilities/comparatorHelper';
 import { ifThrow } from '../utilities/ifThrow';
 import { Dictionary } from './dictionary';
+import { Enumerable } from './enumerable';
+import { OrderedList } from './orderedList';
 
-export class List<T> implements Enumerable<T> {
-  private composedComparator: Comparator<T>;
-
+export class List<T> extends Enumerable<T> implements IEnumerable<T> {
   constructor(
-    private collection: Array<T>,
-    comparator?: Comparator<T>,
+    protected collection: Array<T>,
   ) {
-    this.collection = collection;
-    if (comparator) {
-      this.collection.sort(comparator);
-      this.composedComparator = comparator;
-    }
+    super(collection);
   }
 
-  public append(item: T): Enumerable<T> {
+  public append(item: T): IEnumerable<T> {
     this.collection.push(item);
     return new List<T>(this.collection);
   }
 
   public orderBy<K>(lambda: Lambda<T, K>) {
-    return new List(
+    return new OrderedList(
       [...this.collection],
       ComparatorHelper.comparatorFactory(lambda, true),
     );
   }
 
   public orderByDescending<K>(lambda: Lambda<T, K>) {
-    return new List(
+    return new OrderedList(
       [...this.collection],
       ComparatorHelper.comparatorFactory(lambda, false),
-    );
-  }
-
-  public thenBy<K>(lambda: Lambda<T, K>) {
-    ifThrow(this.composedComparator === null || this.composedComparator === undefined, 'Unable to resolve symbol thenBy.');
-    return new List(
-      [...this.collection],
-      ComparatorHelper.composeComparators(
-        this.composedComparator,
-        ComparatorHelper.comparatorFactory(lambda, true),
-      ),
-    );
-  }
-
-  public thenByDescending<K>(lambda: Lambda<T, K>) {
-    ifThrow(this.composedComparator === null || this.composedComparator === undefined, 'Unable to resolve symbol thenByDescending.');
-    return new List(
-      [...this.collection],
-      ComparatorHelper.composeComparators(
-        this.composedComparator,
-        ComparatorHelper.comparatorFactory(lambda, false),
-      ),
     );
   }
 
@@ -152,10 +125,6 @@ export class List<T> implements Enumerable<T> {
   public avg(lambda?: Lambda<T, number>) {
     const sum = this.sum(lambda);
     return sum !== undefined && !!this.count() ? sum / this.count() : undefined;
-  }
-
-  public toArray() {
-    return this.collection.slice();
   }
 
   public toDictionary<K>(

@@ -1,3 +1,3 @@
-import { Enumerable } from "../interfaces/enumerable.interface";
+import { IEnumerable } from "../interfaces/enumerable.interface";
 
-export type Grouping<T> = { [key: string]: Enumerable<T> };
+export type Grouping<T> = { [key: string]: IEnumerable<T> };

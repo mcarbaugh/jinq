@@ -30,11 +30,11 @@ const list = new List([10, 3, 6, 8]);
 
 const ascending = list
   .orderBy()
-  .toArray();
+  .toJSON();
 
 const descending = list
   .orderByDescending()
-  .toArray();
+  .toJSON();
 
 console.log(ascending); // prints 3 6 8 10
 console.log(descending); // prints 10 8 6 3
@@ -53,7 +53,7 @@ const list = new List([
 const sorted = list
   .orderBy(item => item.favoriteColor) // applies a primary sort on favoriteColor
   .thenBy(item => item.lastName) // applies a secondary sort on lastName
-  .toArray();
+  .toJSON();
 
 console.log(sorted);
 ```
