@@ -1,13 +1,18 @@
 import { describe, expect } from '@jest/globals';
-import { List } from "jinq";
+import { List, OrderedList } from "jinq";
 
 describe('jinq', () => {
   describe('orderBy()', () => {
-    it('creates and returns a new jinq instance', () => {
-      const source = [5, 10, 22, 23, 9, 6, 4];
-      const a = new List(source);
-      const b = a.orderBy((x) => x);
-      return expect(a).not.toBe(b);
+    it('returns a new OrderedList', () => {
+      const source = [
+        { firstName: 'John', lastName: 'Smith', favoriteColor: 'blue' },
+        { firstName: 'Susy', lastName: 'Q', favoriteColor: 'green' },
+        { firstName: 'Jane', lastName: 'Doe', favoriteColor: 'blue' },
+      ];
+      
+      const result = new List(source).orderBy(x => x.lastName);
+      expect(result).not.toBe(source);
+      expect(result).toBeInstanceOf(OrderedList);
     });
     it('sorts the underlying array in ascending order', () => {
       const source = [5, 10, 22, 23, 9, 6, 4];

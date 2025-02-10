@@ -1,18 +1,21 @@
 import { describe, expect } from '@jest/globals';
-import { List } from "jinq";
+import { List, OrderedList } from "jinq";
 
 describe('jinq', () => {
   describe('thenBy()', () => {
-    it('creates and returns a new jinq instance', () => {
+    it('returns a new OrderedList', () => {
       const source = [
         { firstName: 'John', lastName: 'Smith', favoriteColor: 'blue' },
         { firstName: 'Susy', lastName: 'Q', favoriteColor: 'green' },
         { firstName: 'Jane', lastName: 'Doe', favoriteColor: 'blue' },
       ];
       
-      const a = new List(source).orderBy(x => x.lastName);
-      const b = a.thenBy((x) => x.firstName);
-      return expect(a).not.toBe(b);
+      const result = new List(source)
+        .orderBy(x => x.lastName)
+        .thenBy((x) => x.firstName);
+
+      expect(result).not.toBe(source);
+      expect(result).toBeInstanceOf(OrderedList);
     });
     it('sorts by an additional field when invoked after .orderBy()', () => {
       const list = new List([
@@ -31,6 +34,26 @@ describe('jinq', () => {
         { firstName: 'John', lastName: 'Smith', favoriteColor: 'blue' },
         { firstName: 'Susy', lastName: 'Q', favoriteColor: 'green' },
       ]);
+    });
+    it('creates and sorts a new array without modifying the source array', () => {
+      const source = [
+        { firstName: 'John', lastName: 'Smith', favoriteColor: 'blue' },
+        { firstName: 'Susy', lastName: 'Q', favoriteColor: 'green' },
+        { firstName: 'Jane', lastName: 'Doe', favoriteColor: 'blue' },
+      ];
+      
+      const result = new List(source)
+        .orderBy(x => x.lastName)
+        .thenBy((x) => x.firstName)
+        .toJSON();
+
+      expect(source).not.toEqual(result);
+      expect(source).not.toBe(result);
+      expect(source).toEqual([
+        { firstName: 'John', lastName: 'Smith', favoriteColor: 'blue' },
+        { firstName: 'Susy', lastName: 'Q', favoriteColor: 'green' },
+        { firstName: 'Jane', lastName: 'Doe', favoriteColor: 'blue' },
+      ])
     });
   });
 });
