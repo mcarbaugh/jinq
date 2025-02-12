@@ -1,7 +1,7 @@
 import { describe, expect } from '@jest/globals';
 import { List } from "jinq";
 
-describe('List', () => {
+describe('list', () => {
   describe('toDictionary()', () => {
     it('converts a list to a dictionary', () => {
       const list = new List([
