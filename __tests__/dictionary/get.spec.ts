@@ -1,7 +1,7 @@
 import { describe, expect } from '@jest/globals';
 import { List } from "jinq";
 
-describe('Dictionary', () => {
+describe('dictionary', () => {
   describe('get()', () => {
     it('throws an error if a key does not exist', () => {
       const list = new List([

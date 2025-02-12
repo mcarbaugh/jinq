@@ -1,7 +1,7 @@
 import { describe, expect } from '@jest/globals';
 import { List } from "jinq";
 
-describe('jinq', () => {
+describe('list', () => {
   describe('orderByDescending()', () => {
     it('creates and returns a new jinq instance', () => {
       const source = [5, 10, 22, 23, 9, 6, 4];

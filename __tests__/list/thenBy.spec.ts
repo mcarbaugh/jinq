@@ -1,7 +1,7 @@
 import { describe, expect } from '@jest/globals';
 import { List, OrderedList } from "jinq";
 
-describe('jinq', () => {
+describe('list', () => {
   describe('thenBy()', () => {
     it('returns a new OrderedList', () => {
       const source = [

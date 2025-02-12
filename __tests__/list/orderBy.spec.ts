@@ -1,7 +1,7 @@
 import { describe, expect } from '@jest/globals';
 import { List, OrderedList } from "jinq";
 
-describe('jinq', () => {
+describe('list', () => {
   describe('orderBy()', () => {
     it('returns a new OrderedList', () => {
       const source = [
@@ -9,7 +9,7 @@ describe('jinq', () => {
         { firstName: 'Susy', lastName: 'Q', favoriteColor: 'green' },
         { firstName: 'Jane', lastName: 'Doe', favoriteColor: 'blue' },
       ];
-      
+
       const result = new List(source).orderBy(x => x.lastName);
       expect(result).not.toBe(source);
       expect(result).toBeInstanceOf(OrderedList);

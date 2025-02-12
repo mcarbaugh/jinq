@@ -1,7 +1,7 @@
 import { describe, expect } from '@jest/globals';
 import { List } from "jinq";
 
-describe('jinq', () => {
+describe('list', () => {
   describe('thenByDescending()', () => {
     it('creates and returns a new jinq instance', () => {
       const source = [
@@ -9,7 +9,7 @@ describe('jinq', () => {
         { firstName: 'Susy', lastName: 'Q', favoriteColor: 'green' },
         { firstName: 'Jane', lastName: 'Doe', favoriteColor: 'blue' },
       ];
-      
+
       const a = new List(source).orderBy(x => x.lastName);
       const b = a.thenByDescending((x) => x.firstName);
       return expect(a).not.toBe(b);
@@ -20,12 +20,11 @@ describe('jinq', () => {
         { firstName: 'Susy', lastName: 'Q', favoriteColor: 'green' },
         { firstName: 'Jane', lastName: 'Doe', favoriteColor: 'blue' },
       ]);
-
       const result = list
         .orderBy(x => x.favoriteColor)
         .thenByDescending(x => x.lastName)
         .toJSON();
-      
+
       expect(result).toEqual([
         { firstName: 'John', lastName: 'Smith', favoriteColor: 'blue' },
         { firstName: 'Jane', lastName: 'Doe', favoriteColor: 'blue' },
