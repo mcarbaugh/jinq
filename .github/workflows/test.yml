@@ -28,6 +28,9 @@ jobs:
 
       - name: Build
         run: npm run build
+      
+      - name: Install local build
+        run: npm install dist
 
       - name: Run Tests
         run: npm test
