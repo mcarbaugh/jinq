@@ -1,13 +1,12 @@
 name: NestJS-UnitTest
 
 on:
-  pull_request:
-    branches:
-      - master
+  release:
+    types: [created]
 
 jobs:
   build:
-    name: Tests
+    name: Publish
     runs-on: ubuntu-latest
 
     strategy:
@@ -22,13 +21,14 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: ${{ matrix.node-version }}
+          registry-url: 'https://registry.npmjs.org'
 
       - name: Install Dependencies
         run: npm ci
-
+      
       - name: Build
         run: npm run build
-
-      - name: Run Tests
-        run: npm test
-        working-directory: ./
+      
+      - run: npm publish --provenance --access public
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
