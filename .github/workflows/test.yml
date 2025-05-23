@@ -30,7 +30,7 @@ jobs:
         run: npm run build
       
       - name: Install local build
-        run: npm install dist
+        run: npm install ./dist
 
       - name: Run Tests
         run: npm test
