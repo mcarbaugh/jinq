@@ -2,7 +2,6 @@ import { IOrderedEnumerable } from "../interfaces";
 import { Comparator, Lambda } from "../types";
 import { ComparatorHelper } from "../utilities/comparatorHelper";
 import { ifThrow } from "../utilities/ifThrow";
-import { Dictionary } from "./dictionary";
 import { Enumerable } from "./enumerable";
 
 export class OrderedList<T> extends Enumerable<T> implements IOrderedEnumerable<T> {
@@ -39,30 +38,5 @@ export class OrderedList<T> extends Enumerable<T> implements IOrderedEnumerable<
         ComparatorHelper.comparatorFactory(lambda, false),
       ),
     );
-  }
-
-  public toDictionary<K>(
-    lambdaKey: Lambda<T, string>,
-    lambdaValue: Lambda<T, K>,
-  ) {
-    ifThrow(
-      lambdaKey === null || lambdaKey === undefined,
-      'lambdaKey is a required parameter.',
-    );
-    ifThrow(
-      lambdaValue === null || lambdaValue === undefined,
-      'lambdaValue is a required parameter.',
-    );
-    const dictionary = new Dictionary<K>({});
-    this.collection.forEach((x) => {
-      const key = lambdaKey(x);
-      const item = lambdaValue(x);
-      ifThrow(
-        Object.prototype.hasOwnProperty.call(dictionary.toJSON(), key),
-        `Duplicate key ${key} detected.`,
-      );
-      dictionary.set(key, item);
-    });
-    return dictionary;
   }
 }
