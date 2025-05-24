@@ -29,11 +29,11 @@ import { List } from "@mcarbaugh/jinq";
 const list = new List([10, 3, 6, 8]);
 
 const ascending = list
-  .orderBy()
+  .orderBy(x => x)
   .toJSON();
 
 const descending = list
-  .orderByDescending()
+  .orderByDescending(x => x)
   .toJSON();
 
 console.log(ascending); // prints 3 6 8 10
