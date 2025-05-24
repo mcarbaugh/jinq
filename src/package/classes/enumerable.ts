@@ -18,7 +18,7 @@ export class Enumerable<T> {
   }
 
   public where(predicate: Lambda<T, boolean>) {
-    ifThrow(!predicate, 'predicate is required');
+    ifThrow(!predicate, 'predicate is required.');
     return new List(
       this.collection.filter((x) => {
         return predicate(x);
@@ -26,10 +26,11 @@ export class Enumerable<T> {
     );
   }
 
-  public select<K>(lambda: Lambda<T, K>) {
+  public select<K>(selector: Lambda<T, K>) {
+    ifThrow(!selector, 'selector is required.');
     return new List(
       this.collection.map((x) => {
-        return lambda(x);
+        return selector(x);
       }),
     );
   }
