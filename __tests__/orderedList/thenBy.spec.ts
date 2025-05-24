@@ -1,5 +1,5 @@
 import { describe, expect } from '@jest/globals';
-import { OrderedList } from "jinq";
+import { OrderedList } from "@mcarbaugh/jinq";
 
 describe('orderedList', () => {
   describe('constructor', () => {

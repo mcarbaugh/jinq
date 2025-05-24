@@ -1,5 +1,5 @@
 import { describe, expect } from '@jest/globals';
-import { List, OrderedList } from "jinq";
+import { List, OrderedList } from "@mcarbaugh/jinq";
 
 describe('list', () => {
   describe('orderBy()', () => {

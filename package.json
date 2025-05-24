@@ -1,5 +1,5 @@
 {
-  "name": "jinq",
+  "name": "@mcarbaugh/jinq",
   "version": "1.0.0",
   "description": "",
   "main": "./dist/index.js",
@@ -12,7 +12,7 @@
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
     "lint": "eslint \"{src,apps,libs,test}/**/*.ts\" --fix",
     "build": "tsup",
-    "test": "tsup & jest --ci --testResultsProcessor='jest-junit'"
+    "test": "tsup && cd ./dist && npm link && cd .. &&  npm link @mcarbaugh/jinq && jest --ci --testResultsProcessor='jest-junit'"
   },
   "devDependencies": {
     "@babel/preset-typescript": "^7.26.0",

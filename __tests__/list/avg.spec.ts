@@ -1,5 +1,5 @@
 import { describe, expect } from '@jest/globals';
-import { List } from "jinq";
+import { List } from "@mcarbaugh/jinq";
 
 describe('list', () => {
   describe('avg()', () => {

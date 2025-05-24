@@ -4,7 +4,7 @@ A LINQ inspired package which extends and/or enhances native javascript data str
 
 ## Example
 ```ts
-import { List } from "jinq";
+import { List } from "@mcarbaugh/jinq";
 
 const list = new List([
   { firstName: 'John', lastName: 'Smith', favoriteColor: 'blue', age: 20 },
@@ -24,7 +24,7 @@ console.log(averageAge, minAge, maxAge, count); // prints 31 20 45 2
 
 ### Example (Array of Numbers)
 ```ts
-import { List } from "jinq";
+import { List } from "@mcarbaugh/jinq";
 
 const list = new List([10, 3, 6, 8]);
 
@@ -42,7 +42,7 @@ console.log(descending); // prints 10 8 6 3
 
 ### Example (Array of Objects)
 ```ts
-import { List } from "jinq";
+import { List } from "@mcarbaugh/jinq";
 
 const list = new List([
   { firstName: 'John', lastName: 'Smith', favoriteColor: 'blue', age: 20 },
@@ -60,7 +60,7 @@ console.log(sorted);
 
 ## Grouping
 ```ts
-import { List } from "jinq";
+import { List } from "@mcarbaugh/jinq";
 
 const list = new List([
   { firstName: 'John', lastName: 'Smith', favoriteColor: 'blue', age: 20 },
