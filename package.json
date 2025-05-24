@@ -4,6 +4,7 @@
   "author": "Michael Carbaugh <michael.s.carbaugh@gmail.com>",
   "description": "",
   "homepage": "https://github.com/mcarbaugh/jinq#readme",
+  "keywords": ["linq", "typescript"],
   "license": "MIT",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
