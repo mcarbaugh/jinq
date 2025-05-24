@@ -2,7 +2,7 @@ import { describe, expect } from '@jest/globals';
 import { List, OrderedList } from "@mcarbaugh/jinq";
 
 describe('list', () => {
-  describe('orderBy()', () => {
+  describe('.orderBy()', () => {
     it('returns a new OrderedList', () => {
       const source = [
         { firstName: 'John', lastName: 'Smith', favoriteColor: 'blue' },
