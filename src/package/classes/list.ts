@@ -133,18 +133,18 @@ export class List<T> extends Enumerable<T> implements IEnumerable<T> {
   ) {
     ifThrow(
       lambdaKey === null || lambdaKey === undefined,
-      'lambda1 is a required parameter.',
+      'lambdaKey is a required parameter.',
     );
     ifThrow(
       lambdaValue === null || lambdaValue === undefined,
-      'lambda2 is a required parameter.',
+      'lambdaValue is a required parameter.',
     );
     const dictionary = new Dictionary<K>({});
     this.collection.forEach((x) => {
       const key = lambdaKey(x);
       const item = lambdaValue(x);
       ifThrow(
-        Object.prototype.hasOwnProperty.call(dictionary, key),
+        Object.prototype.hasOwnProperty.call(dictionary.toJSON(), key),
         `Duplicate key ${key} detected.`,
       );
       dictionary.set(key, item);
