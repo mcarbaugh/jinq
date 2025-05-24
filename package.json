@@ -1,21 +1,7 @@
 {
   "name": "@mcarbaugh/jinq",
   "version": "1.0.0",
-  "description": "A typescript package modeled after LINQ's fluent api.",
-  "author": "Michael Carbaugh <michael.s.carbaugh@gmail.com>",
-  "keywords": [
-    "linq",
-    "typescript"
-  ],
-  "homepage": "https://github.com/mcarbaugh/jinq#readme",
-  "bugs": {
-    "url": "https://github.com/mcarbaugh/jinq/issues"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/mcarbaugh/jinq.git"
-  },
-  "license": "MIT",
+  "description": "",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
@@ -26,7 +12,7 @@
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
     "lint": "eslint \"{src,apps,libs,test}/**/*.ts\" --fix",
     "build": "tsup",
-    "test": "tsup & jest --ci --testResultsProcessor='jest-junit'"
+    "test": "tsup && cd ./dist && npm link && cd .. &&  npm link @mcarbaugh/jinq && jest --ci --testResultsProcessor='jest-junit'"
   },
   "devDependencies": {
     "@babel/preset-typescript": "^7.26.0",

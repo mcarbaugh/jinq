@@ -26,12 +26,6 @@ jobs:
       - name: Install Dependencies
         run: npm ci
 
-      - name: Build
-        run: npm run build
-      
-      - name: Install local build
-        run: npm install ./dist
-
       - name: Run Tests
         run: npm test
         working-directory: ./
