@@ -7,7 +7,6 @@ export interface IEnumerable<T> {
   orderBy<K>(lambda: Lambda<T, K>): IOrderedEnumerable<T>;
   orderByDescending<K>(lambda: Lambda<T, K>): IOrderedEnumerable<T>;
   where(lambda: Lambda<T, boolean>): IEnumerable<T>;
-  remove<K>(lambda: Lambda<T, K>): IEnumerable<T>;
   select<K>(lambda: Lambda<T, K>): IEnumerable<K>;
   count(lambda?: Lambda<T, boolean>): number;
   sum(lambda?: Lambda<T, number>): number | undefined;

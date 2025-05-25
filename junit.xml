@@ -1,109 +1,129 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuites name="jest tests" tests="40" failures="0" errors="0" time="5.713">
-  <testsuite name="orderedList" errors="0" failures="0" skipped="0" timestamp="2025-05-24T04:16:31" time="3.182" tests="1">
-    <testcase classname="orderedList constructor throws an error if constructed without a comparator" name="orderedList constructor throws an error if constructed without a comparator" time="0.018">
+<testsuites name="jest tests" tests="48" failures="0" errors="0" time="5.711">
+  <testsuite name="List" errors="0" failures="0" skipped="0" timestamp="2025-05-25T02:54:01" time="3.43" tests="6">
+    <testcase classname="List .select() throws an error when invoked without a parameter" name="List .select() throws an error when invoked without a parameter" time="0.022">
+    </testcase>
+    <testcase classname="List .select() throws an error when invoked with a null parameter" name="List .select() throws an error when invoked with a null parameter" time="0.002">
+    </testcase>
+    <testcase classname="List .select() throws an error when invoked with an undefined parameter" name="List .select() throws an error when invoked with an undefined parameter" time="0.002">
+    </testcase>
+    <testcase classname="List .select() returns a projection of the original sequence" name="List .select() returns a projection of the original sequence" time="0.002">
+    </testcase>
+    <testcase classname="List .select() returns a sequence of strings from a list of objects" name="List .select() returns a sequence of strings from a list of objects" time="0.001">
+    </testcase>
+    <testcase classname="List .select() returns a sequence of numbers from a list of objects" name="List .select() returns a sequence of numbers from a list of objects" time="0.001">
     </testcase>
   </testsuite>
-  <testsuite name="List" errors="0" failures="0" skipped="0" timestamp="2025-05-24T04:16:35" time="0.322" tests="9">
-    <testcase classname="List .count() returns length of underlying array with default invocation" name="List .count() returns length of underlying array with default invocation" time="0.005">
+  <testsuite name="list" errors="0" failures="0" skipped="0" timestamp="2025-05-25T02:54:00" time="3.586" tests="2">
+    <testcase classname="list .append() throws on null item" name="list .append() throws on null item" time="0.052">
     </testcase>
-    <testcase classname="List .count() returns 0 for an empty list" name="List .count() returns 0 for an empty list" time="0.002">
+    <testcase classname="list .append() adds an item to the end of the source sequence" name="list .append() adds an item to the end of the source sequence" time="0.006">
+    </testcase>
+  </testsuite>
+  <testsuite name="orderedList" errors="0" failures="0" skipped="0" timestamp="2025-05-25T02:54:01" time="3.544" tests="3">
+    <testcase classname="orderedList .toDictionary() throws an exception if lambdaKey is not specified" name="orderedList .toDictionary() throws an exception if lambdaKey is not specified" time="0.019">
+    </testcase>
+    <testcase classname="orderedList .toDictionary() throws an exception if lambdaValue is not specified" name="orderedList .toDictionary() throws an exception if lambdaValue is not specified" time="0.011">
+    </testcase>
+    <testcase classname="orderedList .toDictionary() throws an exception if a duplicate key is detected" name="orderedList .toDictionary() throws an exception if a duplicate key is detected" time="0.003">
+    </testcase>
+  </testsuite>
+  <testsuite name="list" errors="0" failures="0" skipped="0" timestamp="2025-05-25T02:54:04" time="0.306" tests="3">
+    <testcase classname="list .thenBy() returns a new OrderedList" name="list .thenBy() returns a new OrderedList" time="0.004">
+    </testcase>
+    <testcase classname="list .thenBy() sorts by an additional field when invoked after .orderBy()" name="list .thenBy() sorts by an additional field when invoked after .orderBy()" time="0.003">
+    </testcase>
+    <testcase classname="list .thenBy() creates and sorts a new array without modifying the source array" name="list .thenBy() creates and sorts a new array without modifying the source array" time="0.001">
+    </testcase>
+  </testsuite>
+  <testsuite name="List" errors="0" failures="0" skipped="0" timestamp="2025-05-25T02:54:04" time="0.295" tests="2">
+    <testcase classname="List .min() returns min of underlying array of numbers" name="List .min() returns min of underlying array of numbers" time="0.007">
+    </testcase>
+    <testcase classname="List .min() returns undefined for an empty list" name="List .min() returns undefined for an empty list" time="0.002">
+    </testcase>
+  </testsuite>
+  <testsuite name="List" errors="0" failures="0" skipped="0" timestamp="2025-05-25T02:54:04" time="0.337" tests="9">
+    <testcase classname="List .count() returns length of underlying array with default invocation" name="List .count() returns length of underlying array with default invocation" time="0.004">
+    </testcase>
+    <testcase classname="List .count() returns 0 for an empty list" name="List .count() returns 0 for an empty list" time="0.003">
     </testcase>
     <testcase classname="List .count() matches the equivalent .where() chain with predicate invocation" name="List .count() matches the equivalent .where() chain with predicate invocation" time="0.001">
     </testcase>
-    <testcase classname="List .count() accepts a predicate which filters an underlying array of numbers" name="List .count() accepts a predicate which filters an underlying array of numbers" time="0.001">
+    <testcase classname="List .count() accepts a predicate which filters an underlying array of numbers" name="List .count() accepts a predicate which filters an underlying array of numbers" time="0.003">
     </testcase>
-    <testcase classname="List .count() accepts a predicate which filters an underlying array of json objects" name="List .count() accepts a predicate which filters an underlying array of json objects" time="0.001">
+    <testcase classname="List .count() accepts a predicate which filters an underlying array of json objects" name="List .count() accepts a predicate which filters an underlying array of json objects" time="0.002">
     </testcase>
-    <testcase classname="List .count() returns zero when jinq contains no matching items" name="List .count() returns zero when jinq contains no matching items" time="0.001">
+    <testcase classname="List .count() returns zero when jinq contains no matching items" name="List .count() returns zero when jinq contains no matching items" time="0.002">
     </testcase>
-    <testcase classname="List .count() returns length of the underlying array with a forced truthy predicate" name="List .count() returns length of the underlying array with a forced truthy predicate" time="0.001">
+    <testcase classname="List .count() returns length of the underlying array with a forced truthy predicate" name="List .count() returns length of the underlying array with a forced truthy predicate" time="0.003">
     </testcase>
-    <testcase classname="List .count() returns zero with a forced falsey predicate" name="List .count() returns zero with a forced falsey predicate" time="0.003">
+    <testcase classname="List .count() returns zero with a forced falsey predicate" name="List .count() returns zero with a forced falsey predicate" time="0.002">
     </testcase>
     <testcase classname="List .count() chains with .select() statement" name="List .count() chains with .select() statement" time="0.002">
     </testcase>
   </testsuite>
-  <testsuite name="list" errors="0" failures="0" skipped="0" timestamp="2025-05-24T04:16:31" time="3.476" tests="5">
-    <testcase classname="list .toDictionary() converts a list to a dictionary" name="list .toDictionary() converts a list to a dictionary" time="0.017">
+  <testsuite name="dictionary" errors="0" failures="0" skipped="0" timestamp="2025-05-25T02:54:04" time="0.218" tests="1">
+    <testcase classname="dictionary get() throws an error if a key does not exist" name="dictionary get() throws an error if a key does not exist" time="0.007">
     </testcase>
-    <testcase classname="list .toDictionary() converts a list to a dictionary with value projection" name="list .toDictionary() converts a list to a dictionary with value projection" time="0.001">
+  </testsuite>
+  <testsuite name="List" errors="0" failures="0" skipped="0" timestamp="2025-05-25T02:54:04" time="0.194" tests="2">
+    <testcase classname="List .sum() returns sum of underlying array of numbers" name="List .sum() returns sum of underlying array of numbers" time="0.004">
     </testcase>
-    <testcase classname="list .toDictionary() throws an exception if lambdaKey is not specified" name="list .toDictionary() throws an exception if lambdaKey is not specified" time="0.003">
+    <testcase classname="List .sum() returns undefined for an empty list" name="List .sum() returns undefined for an empty list" time="0.002">
+    </testcase>
+  </testsuite>
+  <testsuite name="list" errors="0" failures="0" skipped="0" timestamp="2025-05-25T02:54:04" time="0.195" tests="2">
+    <testcase classname="list .avg() returns min of underlying array of numbers" name="list .avg() returns min of underlying array of numbers" time="0.005">
+    </testcase>
+    <testcase classname="list .avg() returns undefined for an empty list" name="list .avg() returns undefined for an empty list" time="0.001">
+    </testcase>
+  </testsuite>
+  <testsuite name="list" errors="0" failures="0" skipped="0" timestamp="2025-05-25T02:54:05" time="0.25" tests="5">
+    <testcase classname="list .toDictionary() converts a list to a dictionary" name="list .toDictionary() converts a list to a dictionary" time="0.008">
+    </testcase>
+    <testcase classname="list .toDictionary() converts a list to a dictionary with value projection" name="list .toDictionary() converts a list to a dictionary with value projection" time="0.002">
+    </testcase>
+    <testcase classname="list .toDictionary() throws an exception if lambdaKey is not specified" name="list .toDictionary() throws an exception if lambdaKey is not specified" time="0.005">
     </testcase>
     <testcase classname="list .toDictionary() throws an exception if lambdaValue is not specified" name="list .toDictionary() throws an exception if lambdaValue is not specified" time="0.002">
     </testcase>
-    <testcase classname="list .toDictionary() throws an exception if a duplicate key is detected" name="list .toDictionary() throws an exception if a duplicate key is detected" time="0.006">
+    <testcase classname="list .toDictionary() throws an exception if a duplicate key is detected" name="list .toDictionary() throws an exception if a duplicate key is detected" time="0.001">
     </testcase>
   </testsuite>
-  <testsuite name="list" errors="0" failures="0" skipped="0" timestamp="2025-05-24T04:16:35" time="0.253" tests="3">
-    <testcase classname="list .thenBy() returns a new OrderedList" name="list .thenBy() returns a new OrderedList" time="0.005">
+  <testsuite name="List" errors="0" failures="0" skipped="0" timestamp="2025-05-25T02:54:05" time="0.219" tests="2">
+    <testcase classname="List .max() returns min of underlying array of numbers" name="List .max() returns min of underlying array of numbers" time="0.006">
     </testcase>
-    <testcase classname="list .thenBy() sorts by an additional field when invoked after .orderBy()" name="list .thenBy() sorts by an additional field when invoked after .orderBy()" time="0.007">
-    </testcase>
-    <testcase classname="list .thenBy() creates and sorts a new array without modifying the source array" name="list .thenBy() creates and sorts a new array without modifying the source array" time="0.002">
+    <testcase classname="List .max() returns undefined for an empty list" name="List .max() returns undefined for an empty list" time="0.001">
     </testcase>
   </testsuite>
-  <testsuite name="List" errors="0" failures="0" skipped="0" timestamp="2025-05-24T04:16:35" time="0.207" tests="2">
-    <testcase classname="List .sum() returns sum of underlying array of numbers" name="List .sum() returns sum of underlying array of numbers" time="0.003">
-    </testcase>
-    <testcase classname="List .sum() returns undefined for an empty list" name="List .sum() returns undefined for an empty list" time="0.001">
-    </testcase>
-  </testsuite>
-  <testsuite name="list" errors="0" failures="0" skipped="0" timestamp="2025-05-24T04:16:35" time="0.196" tests="4">
-    <testcase classname="list .orderBy() returns a new OrderedList" name="list .orderBy() returns a new OrderedList" time="0.004">
-    </testcase>
-    <testcase classname="list .orderBy() sorts the underlying array in ascending order" name="list .orderBy() sorts the underlying array in ascending order" time="0.002">
-    </testcase>
-    <testcase classname="list .orderBy() doesn&apos;t modify the order of the source array" name="list .orderBy() doesn&apos;t modify the order of the source array" time="0.001">
-    </testcase>
-    <testcase classname="list .orderBy() handles an empty array" name="list .orderBy() handles an empty array" time="0.002">
-    </testcase>
-  </testsuite>
-  <testsuite name="dictionary" errors="0" failures="0" skipped="0" timestamp="2025-05-24T04:16:35" time="0.203" tests="1">
-    <testcase classname="dictionary get() throws an error if a key does not exist" name="dictionary get() throws an error if a key does not exist" time="0.004">
-    </testcase>
-  </testsuite>
-  <testsuite name="List" errors="0" failures="0" skipped="0" timestamp="2025-05-24T04:16:35" time="0.198" tests="2">
-    <testcase classname="List .min() returns min of underlying array of numbers" name="List .min() returns min of underlying array of numbers" time="0.003">
-    </testcase>
-    <testcase classname="List .min() returns undefined for an empty list" name="List .min() returns undefined for an empty list" time="0.001">
-    </testcase>
-  </testsuite>
-  <testsuite name="orderedList" errors="0" failures="0" skipped="0" timestamp="2025-05-24T04:16:31" time="4.232" tests="3">
-    <testcase classname="orderedList .toDictionary() throws an exception if lambdaKey is not specified" name="orderedList .toDictionary() throws an exception if lambdaKey is not specified" time="0.018">
-    </testcase>
-    <testcase classname="orderedList .toDictionary() throws an exception if lambdaValue is not specified" name="orderedList .toDictionary() throws an exception if lambdaValue is not specified" time="0.003">
-    </testcase>
-    <testcase classname="orderedList .toDictionary() throws an exception if a duplicate key is detected" name="orderedList .toDictionary() throws an exception if a duplicate key is detected" time="0.002">
-    </testcase>
-  </testsuite>
-  <testsuite name="list" errors="0" failures="0" skipped="0" timestamp="2025-05-24T04:16:35" time="0.226" tests="4">
-    <testcase classname="list .orderByDescending() creates and returns a new jinq instance" name="list .orderByDescending() creates and returns a new jinq instance" time="0.011">
+  <testsuite name="list" errors="0" failures="0" skipped="0" timestamp="2025-05-25T02:54:05" time="0.217" tests="4">
+    <testcase classname="list .orderByDescending() creates and returns a new jinq instance" name="list .orderByDescending() creates and returns a new jinq instance" time="0.004">
     </testcase>
     <testcase classname="list .orderByDescending() sorts the underlying array in descending order" name="list .orderByDescending() sorts the underlying array in descending order" time="0.002">
     </testcase>
     <testcase classname="list .orderByDescending() doesn&apos;t modify the order of the source array" name="list .orderByDescending() doesn&apos;t modify the order of the source array" time="0.002">
     </testcase>
-    <testcase classname="list .orderByDescending() handles an empty array" name="list .orderByDescending() handles an empty array" time="0.001">
+    <testcase classname="list .orderByDescending() handles an empty array" name="list .orderByDescending() handles an empty array" time="0.005">
     </testcase>
   </testsuite>
-  <testsuite name="list" errors="0" failures="0" skipped="0" timestamp="2025-05-24T04:16:36" time="0.189" tests="2">
-    <testcase classname="list .avg() returns min of underlying array of numbers" name="list .avg() returns min of underlying array of numbers" time="0.006">
-    </testcase>
-    <testcase classname="list .avg() returns undefined for an empty list" name="list .avg() returns undefined for an empty list" time="0.001">
-    </testcase>
-  </testsuite>
-  <testsuite name="List" errors="0" failures="0" skipped="0" timestamp="2025-05-24T04:16:36" time="0.198" tests="2">
-    <testcase classname="List .max() returns min of underlying array of numbers" name="List .max() returns min of underlying array of numbers" time="0.004">
-    </testcase>
-    <testcase classname="List .max() returns undefined for an empty list" name="List .max() returns undefined for an empty list" time="0.002">
-    </testcase>
-  </testsuite>
-  <testsuite name="list" errors="0" failures="0" skipped="0" timestamp="2025-05-24T04:16:36" time="0.184" tests="2">
+  <testsuite name="list" errors="0" failures="0" skipped="0" timestamp="2025-05-25T02:54:05" time="0.212" tests="2">
     <testcase classname="list .thenByDescending() creates and returns a new jinq instance" name="list .thenByDescending() creates and returns a new jinq instance" time="0.004">
     </testcase>
     <testcase classname="list .thenByDescending() sorts by an additional field in descending order when invoked after .orderBy()" name="list .thenByDescending() sorts by an additional field in descending order when invoked after .orderBy()" time="0.002">
+    </testcase>
+  </testsuite>
+  <testsuite name="orderedList" errors="0" failures="0" skipped="0" timestamp="2025-05-25T02:54:05" time="0.212" tests="1">
+    <testcase classname="orderedList constructor throws an error if constructed without a comparator" name="orderedList constructor throws an error if constructed without a comparator" time="0.007">
+    </testcase>
+  </testsuite>
+  <testsuite name="list" errors="0" failures="0" skipped="0" timestamp="2025-05-25T02:54:05" time="0.262" tests="4">
+    <testcase classname="list .orderBy() returns a new OrderedList" name="list .orderBy() returns a new OrderedList" time="0.008">
+    </testcase>
+    <testcase classname="list .orderBy() sorts the underlying array in ascending order" name="list .orderBy() sorts the underlying array in ascending order" time="0.002">
+    </testcase>
+    <testcase classname="list .orderBy() doesn&apos;t modify the order of the source array" name="list .orderBy() doesn&apos;t modify the order of the source array" time="0.002">
+    </testcase>
+    <testcase classname="list .orderBy() handles an empty array" name="list .orderBy() handles an empty array" time="0.002">
     </testcase>
   </testsuite>
 </testsuites>
