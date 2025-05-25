@@ -1,5 +1,6 @@
 import { IEnumerable } from "../interfaces";
 import { Lambda } from "../types";
+import { checkedNumber } from "../utilities/checks";
 import { ifThrow } from "../utilities/ifThrow";
 import { Dictionary } from "./dictionary";
 import { List } from "./list";
@@ -100,9 +101,24 @@ export class Enumerable<T> {
     return max;
   }
 
-  public avg(selector?: Lambda<T, number>) {
-    const sum = this.sum(selector);
-    return sum !== undefined && !!this.count() ? sum / this.count() : undefined;
+  public average(selector?: Lambda<T, number>) {
+    let count = 0;
+    let sum: number | null = null;
+    this.source.forEach(item => {
+      const value = !!selector ? selector(item) : item;
+      const checked = checkedNumber(value);
+      if (checked !== null) {
+        if (sum === null) {
+          sum = checked;
+        } else {
+          sum += checked;
+        }
+        count++;
+      }
+    });
+    return sum !== null && count > 0
+      ? sum / count
+      : null;
   }
 
   public toDictionary<K>(
