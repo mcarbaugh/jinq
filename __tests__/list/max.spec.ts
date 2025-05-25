@@ -3,7 +3,7 @@ import { List } from "@mcarbaugh/jinq";
 
 describe('List', () => {
   describe('.max()', () => {
-    it('returns min of underlying array of numbers', () => {
+    it('returns max of underlying array of numbers', () => {
       const list = new List([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
       const result = list.max();
       return expect(result).toEqual(10);
