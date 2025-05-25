@@ -119,8 +119,6 @@ export class Enumerable<T> {
     return sum !== null && count > 0
       ? sum / count
       : null;
-    // const sum = this.sum(selector);
-    // return sum !== undefined && !!this.count() ? sum / this.count() : undefined;
   }
 
   public toDictionary<K>(
