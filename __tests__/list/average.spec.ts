@@ -42,16 +42,24 @@ describe('list', () => {
       const result = list.average(x => x.age);
       return expect(result).toEqual(null);
     });
-    it('yields same result whether chained with .where() or using predicate', () => {
+    it('yields same result whether chained with .select() or using predicate', () => {
       const list = new List([
-        { firstName: 'John', lastName: 'Smith', age: null },
-        { firstName: 'Susy', lastName: 'Q', age: null },
-        { firstName: 'Jane', lastName: 'Doe', age: null },
+        { firstName: 'John', lastName: 'Smith', age: 44 },
+        { firstName: 'Susy', lastName: 'Q', age: 25 },
+        { firstName: 'Jane', lastName: 'Doe', age: 30 },
         { firstName: 'Bert', lastName: 'Reynolds', age: null },
       ]);
       const result1 = list.average(x => x.age);
-      const result2 = list.where(x => x.age).average();
+      const result2 = list.select(x => x.age).average();
       expect(result1).toEqual(result2);
+    });
+    it('returns average from a list of positive and negative numbers', () => {
+      const list = new List([
+        { firstName: 'John', lastName: 'Smith', age: 10 },
+        { firstName: 'Susy', lastName: 'Q', age: -10 },
+      ]);
+      const result = list.average(x => x.age);
+      expect(result).toEqual(0);
     });
   });
 });
