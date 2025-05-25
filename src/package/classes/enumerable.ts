@@ -6,21 +6,21 @@ import { List } from "./list";
 
 export class Enumerable<T> {
   constructor(
-    protected collection: Array<T>,
+    protected source: Array<T>,
   ) {
-    this.collection = collection;
+    this.source = source;
   }
 
   public append(item: T): IEnumerable<T> {
     ifThrow(item === null || item === undefined, 'item is null or undefined.');
-    this.collection.push(item);
-    return new List<T>(this.collection);
+    this.source.push(item);
+    return new List<T>(this.source);
   }
 
   public where(predicate: Lambda<T, boolean>) {
     ifThrow(!predicate, 'predicate is required.');
     return new List(
-      this.collection.filter((x) => {
+      this.source.filter((x) => {
         return predicate(x);
       }),
     );
@@ -29,7 +29,7 @@ export class Enumerable<T> {
   public select<K>(selector: Lambda<T, K>) {
     ifThrow(!selector, 'selector is required.');
     return new List(
-      this.collection.map((x) => {
+      this.source.map((x) => {
         return selector(x);
       }),
     );
@@ -37,8 +37,8 @@ export class Enumerable<T> {
 
   public count(predicate?: Lambda<T, boolean>) {
     return !predicate
-      ? this.collection.length
-      : this.collection.filter((x) => {
+      ? this.source.length
+      : this.source.filter((x) => {
           return predicate(x);
         }).length;
   }
@@ -46,8 +46,8 @@ export class Enumerable<T> {
   public sum(lambda?: Lambda<T, number>) {
     let sum: number | undefined;
     const source = !lambda
-      ? this.collection
-      : this.collection.map((x) => lambda(x));
+      ? this.source
+      : this.source.map((x) => lambda(x));
 
     source.every((value: T) => {
       if (typeof value === 'number') {
@@ -65,8 +65,8 @@ export class Enumerable<T> {
   public min(lambda?: Lambda<T, number>) {
     let min: number | undefined;
     const source = !lambda
-      ? this.collection
-      : this.collection.map((x) => lambda(x));
+      ? this.source
+      : this.source.map((x) => lambda(x));
 
     source.every((value: T) => {
       if (typeof value === 'number') {
@@ -84,8 +84,8 @@ export class Enumerable<T> {
   public max(lambda?: Lambda<T, number>) {
     let max: number | undefined;
     const source = !lambda
-      ? this.collection
-      : this.collection.map((x) => lambda(x));
+      ? this.source
+      : this.source.map((x) => lambda(x));
 
     source.every((value: T) => {
       if (typeof value === 'number') {
@@ -117,10 +117,10 @@ export class Enumerable<T> {
       lambdaValue === null || lambdaValue === undefined,
       'lambdaValue is a required parameter.',
     );
-    ifThrow(this.collection === null || this.collection === undefined, 'Collection is null or undefined.');
+    ifThrow(this.source === null || this.source === undefined, 'Collection is null or undefined.');
     
     const dictionary = new Dictionary<K>({});
-    this.collection.forEach((x) => {
+    this.source.forEach((x) => {
       const key = lambdaKey(x);
       const item = lambdaValue(x);
       ifThrow(
@@ -134,6 +134,6 @@ export class Enumerable<T> {
   }
 
   public toJSON() {
-    return this.collection;
+    return this.source;
   }
 }

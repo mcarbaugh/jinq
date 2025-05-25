@@ -6,28 +6,28 @@ import { OrderedList } from './orderedList';
 
 export class List<T> extends Enumerable<T> implements IEnumerable<T> {
   constructor(
-    protected collection: Array<T>,
+    protected source: Array<T>,
   ) {
-    super(collection);
+    super(source);
   }
 
   public orderBy<K>(lambda: Lambda<T, K>) {
     return new OrderedList(
-      [...this.collection],
+      [...this.source],
       ComparatorHelper.comparatorFactory(lambda, true),
     );
   }
 
   public orderByDescending<K>(lambda: Lambda<T, K>) {
     return new OrderedList(
-      [...this.collection],
+      [...this.source],
       ComparatorHelper.comparatorFactory(lambda, false),
     );
   }
 
   public groupBy(lambda: Lambda<T, string>) {
     const grouping: Grouping<T> = {};
-    this.collection.forEach((x) => {
+    this.source.forEach((x) => {
       const key = lambda(x);
       if (!Object.prototype.hasOwnProperty.call(grouping, key)) {
         grouping[key] = new List<T>([]);
