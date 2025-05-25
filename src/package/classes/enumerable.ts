@@ -43,11 +43,11 @@ export class Enumerable<T> {
         }).length;
   }
 
-  public sum(lambda?: Lambda<T, number>) {
+  public sum(selector?: Lambda<T, number>) {
     let sum: number | undefined;
-    const source = !lambda
+    const source = !selector
       ? this.source
-      : this.source.map((x) => lambda(x));
+      : this.source.map((x) => selector(x));
 
     source.every((value: T) => {
       if (typeof value === 'number') {
@@ -62,11 +62,11 @@ export class Enumerable<T> {
     return sum;
   }
 
-  public min(lambda?: Lambda<T, number>) {
+  public min(selector?: Lambda<T, number>) {
     let min: number | undefined;
-    const source = !lambda
+    const source = !selector
       ? this.source
-      : this.source.map((x) => lambda(x));
+      : this.source.map((x) => selector(x));
 
     source.every((value: T) => {
       if (typeof value === 'number') {
@@ -81,11 +81,11 @@ export class Enumerable<T> {
     return min;
   }
 
-  public max(lambda?: Lambda<T, number>) {
+  public max(selector?: Lambda<T, number>) {
     let max: number | undefined;
-    const source = !lambda
+    const source = !selector
       ? this.source
-      : this.source.map((x) => lambda(x));
+      : this.source.map((x) => selector(x));
 
     source.every((value: T) => {
       if (typeof value === 'number') {
@@ -100,8 +100,8 @@ export class Enumerable<T> {
     return max;
   }
 
-  public avg(lambda?: Lambda<T, number>) {
-    const sum = this.sum(lambda);
+  public avg(selector?: Lambda<T, number>) {
+    const sum = this.sum(selector);
     return sum !== undefined && !!this.count() ? sum / this.count() : undefined;
   }
 
