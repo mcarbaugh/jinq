@@ -10,7 +10,7 @@ export interface IEnumerable<T> {
   select<K>(lambda: Lambda<T, K>): IEnumerable<K>;
   count(lambda?: Lambda<T, boolean>): number;
   sum(lambda?: Lambda<T, number>): number | undefined;
-  average(lambda?: Lambda<T, number>): number | null;
+  average(selector?: Lambda<T, number>): number | null;
   min(lambda?: Lambda<T, number>): number | undefined;
   max(lambda?: Lambda<T, number>): number | undefined;
   toJSON(): Array<T>;
