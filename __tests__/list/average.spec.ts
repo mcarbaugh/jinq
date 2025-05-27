@@ -53,6 +53,16 @@ describe('list', () => {
       const result2 = list.select(x => x.age).average();
       expect(result1).toEqual(result2);
     });
+    it('chains with .where()', () => {
+      const list = new List([
+        { firstName: 'John', lastName: 'Smith', age: 44 },
+        { firstName: 'Susy', lastName: 'Q', age: 25 },
+        { firstName: 'Jane', lastName: 'Doe', age: 30 },
+        { firstName: 'Bert', lastName: 'Reynolds', age: null },
+      ]);
+      const result = list.where(x => x.age > 25).average(x => x.age);
+      expect(result).toEqual(37);
+    });
     it('returns average from a list of positive and negative numbers', () => {
       const list = new List([
         { firstName: 'John', lastName: 'Smith', age: 10 },

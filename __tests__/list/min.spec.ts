@@ -27,6 +27,27 @@ describe('List', () => {
       const result = list.min();
       expect(result).toEqual(-5);
     });
+    it('yields same result whether chained with .select() or using predicate', () => {
+      const list = new List([
+        { firstName: 'John', lastName: 'Smith', age: 44 },
+        { firstName: 'Susy', lastName: 'Q', age: 25 },
+        { firstName: 'Jane', lastName: 'Doe', age: 30 },
+        { firstName: 'Bert', lastName: 'Reynolds', age: null },
+      ]);
+      const result1 = list.min(x => x.age);
+      const result2 = list.select(x => x.age).min();
+      expect(result1).toEqual(result2);
+    });
+    it('chains with .where()', () => {
+      const list = new List([
+        { firstName: 'John', lastName: 'Smith', age: 44 },
+        { firstName: 'Susy', lastName: 'Q', age: 25 },
+        { firstName: 'Jane', lastName: 'Doe', age: 30 },
+        { firstName: 'Bert', lastName: 'Reynolds', age: null },
+      ]);
+      const result = list.where(x => x.age > 25).min(x => x.age);
+      expect(result).toEqual(30);
+    });
     it('throws an error when non numeric, non null values appear in the source sequence', () => {
       let threw = false;
       try {
