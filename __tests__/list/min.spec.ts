@@ -17,10 +17,27 @@ describe('List', () => {
       const result = list.min(item => item.age);
       return expect(result).toEqual(15);
     });
-    it('returns undefined for an empty list', () => {
+    it('returns null for an empty list', () => {
       const list = new List([]);
       const result = list.min();
-      return expect(result).toEqual(undefined);
+      return expect(result).toEqual(null);
+    });
+    it('ignores nulls and returns the min of remaining values', () => {
+      const list = new List([1, 2, 1, null, null, 22, 35, 23, -5]);
+      const result = list.min();
+      expect(result).toEqual(-5);
+    });
+    it('throws an error when non numeric, non null values appear in the source sequence', () => {
+      let threw = false;
+      try {
+        const list = new List([1, 2, 3, '4', 'abc', 6, 7, 8, 9]);
+        list.min();
+      } catch (error) {
+        threw = true;
+        expect(error).toBeInstanceOf(Error);
+        expect(error).toHaveProperty('message', 'type not supported.');
+      }
+      expect(threw).toEqual(true);
     });
   });
 });

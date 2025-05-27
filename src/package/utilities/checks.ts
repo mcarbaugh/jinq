@@ -1,3 +1,5 @@
+import { ifThrow } from "./ifThrow";
+
 export const isNumeric = (value: any) => {
   return !(typeof(value) === "string"
     || typeof(value) === "boolean"
@@ -20,5 +22,7 @@ export const checkedNumber = (value: any): number | null => {
     ? Number(value)
     : isNumeric(value)
       ? value as number
-      : null;
+      : ifThrow(value !== null, 'type not supported.')
+        ? null
+        : null;
 }
