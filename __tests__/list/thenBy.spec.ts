@@ -55,5 +55,22 @@ describe('list', () => {
         { firstName: 'Jane', lastName: 'Doe', favoriteColor: 'blue' },
       ])
     });
+    it('places null values before strings', () => {
+      const list = new List([
+        { firstName: 'John', lastName: 'Smith', favoriteColor: 'blue' },
+        { firstName: 'Susy', lastName: null, favoriteColor: 'blue' },
+        { firstName: 'Jane', lastName: 'Doe', favoriteColor: 'blue' },
+      ]);
+      const result = list
+        .orderBy(x => x.favoriteColor)
+        .thenBy(x => x.lastName)
+        .toJSON();
+
+      expect(result).toEqual([
+        { firstName: 'Susy', lastName: null, favoriteColor: 'blue' },
+        { firstName: 'Jane', lastName: 'Doe', favoriteColor: 'blue' },
+        { firstName: 'John', lastName: 'Smith', favoriteColor: 'blue' },
+      ]);
+    });
   });
 });
