@@ -4,12 +4,12 @@ import { IOrderedEnumerable } from "./orderedEnumerable.interface";
 
 export interface IEnumerable<T> {
   append(item: T): IEnumerable<T>;
-  orderBy<K>(lambda: Lambda<T, K>): IOrderedEnumerable<T>;
-  orderByDescending<K>(lambda: Lambda<T, K>): IOrderedEnumerable<T>;
-  where(lambda: Lambda<T, boolean>): IEnumerable<T>;
-  select<K>(lambda: Lambda<T, K>): IEnumerable<K>;
-  count(lambda?: Lambda<T, boolean>): number;
-  sum(lambda?: Lambda<T, number>): number | undefined;
+  orderBy<K>(selector: Lambda<T, K>): IOrderedEnumerable<T>;
+  orderByDescending<K>(selector: Lambda<T, K>): IOrderedEnumerable<T>;
+  where(predicate: Lambda<T, boolean>): IEnumerable<T>;
+  select<K>(selector: Lambda<T, K>): IEnumerable<K>;
+  count(predicate?: Lambda<T, boolean>): number;
+  sum(selector?: Lambda<T, number>): number;
   average(selector?: Lambda<T, number>): number | null;
   min(selector?: Lambda<T, number>): number | null;
   max(selector?: Lambda<T, number>): number | null;
