@@ -27,7 +27,7 @@ describe('List', () => {
       const result = list.min();
       expect(result).toEqual(-5);
     });
-    it('yields same result whether chained with .select() or using predicate', () => {
+    it('yields same result whether chained with .select() or using selector argument', () => {
       const list = new List([
         { firstName: 'John', lastName: 'Smith', age: 44 },
         { firstName: 'Susy', lastName: 'Q', age: 25 },
