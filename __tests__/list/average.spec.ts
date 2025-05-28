@@ -42,7 +42,7 @@ describe('list', () => {
       const result = list.average(x => x.age);
       return expect(result).toEqual(null);
     });
-    it('yields same result whether chained with .select() or using predicate', () => {
+    it('yields same result whether chained with .select() or using selector argument', () => {
       const list = new List([
         { firstName: 'John', lastName: 'Smith', age: 44 },
         { firstName: 'Susy', lastName: 'Q', age: 25 },
