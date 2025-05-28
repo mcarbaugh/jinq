@@ -17,14 +17,14 @@ export class ComparatorHelper {
   }
 
   public static comparatorFactory<T, K>(
-    lambda: Lambda<T, K>,
+    selector: Lambda<T, K>,
     ascending: boolean,
   ) {
     return (x: T, y: T) => {
-      if (lambda(x) < lambda(y)) {
+      if (selector(x) < selector(y)) {
         return ascending ? -1 : 1;
       }
-      if (lambda(x) > lambda(y)) {
+      if (selector(x) > selector(y)) {
         return ascending ? 1 : -1;
       }
       return 0;
