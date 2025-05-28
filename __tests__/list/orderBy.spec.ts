@@ -34,5 +34,15 @@ describe('list', () => {
       expect(result).toEqual([]);      // sort order is applied to the new list
       expect(source).not.toBe(result); // a new array is return from toArray
     })
+    it('places nulls before numbers', () => {
+      const source = [5, 10, 22, null, -10, 6, 4, null];
+      const result = new List(source).orderBy(x => x).toJSON();
+      expect(result).toEqual([null, null, -10, 4, 5, 6, 10, 22]);
+    })
+    it('places nulls before strings', () => {
+      const source = ['apple', null, 'dog'];
+      const result = new List(source).orderBy(x => x).toJSON();
+      expect(result).toEqual([null, 'apple', 'dog']);
+    })
   });
 });

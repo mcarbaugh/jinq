@@ -25,10 +25,10 @@ export class List<T> extends Enumerable<T> implements IEnumerable<T> {
     );
   }
 
-  public groupBy(lambda: Lambda<T, string>) {
+  public groupBy(selector: Lambda<T, string>) {
     const grouping: Grouping<T> = {};
     this.source.forEach((x) => {
-      const key = lambda(x);
+      const key = selector(x);
       if (!Object.prototype.hasOwnProperty.call(grouping, key)) {
         grouping[key] = new List<T>([]);
       }

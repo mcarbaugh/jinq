@@ -21,13 +21,23 @@ export class ComparatorHelper {
     ascending: boolean,
   ) {
     return (x: T, y: T) => {
-      if (selector(x) < selector(y)) {
+      const xVal = selector(x)
+      const yVal = selector(y)
+      if ((xVal === null || xVal === undefined) && (yVal === null || yVal === undefined)) {
+        return 0;
+      } else if (xVal === null || xVal === undefined){
         return ascending ? -1 : 1;
-      }
-      if (selector(x) > selector(y)) {
+      } else if(yVal === null || yVal === undefined) {
         return ascending ? 1 : -1;
+      } else {
+        if (xVal < yVal) {
+          return ascending ? -1 : 1;
+        } else if (xVal > yVal) {
+          return ascending ? 1 : -1;
+        } else {
+          return 0;
+        }
       }
-      return 0;
     };
   }
 }
