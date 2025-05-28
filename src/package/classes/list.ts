@@ -11,24 +11,24 @@ export class List<T> extends Enumerable<T> implements IEnumerable<T> {
     super(source);
   }
 
-  public orderBy<K>(lambda: Lambda<T, K>) {
+  public orderBy<K>(selector: Lambda<T, K>) {
     return new OrderedList(
       [...this.source],
-      ComparatorHelper.comparatorFactory(lambda, true),
+      ComparatorHelper.comparatorFactory(selector, true),
     );
   }
 
-  public orderByDescending<K>(lambda: Lambda<T, K>) {
+  public orderByDescending<K>(selector: Lambda<T, K>) {
     return new OrderedList(
       [...this.source],
-      ComparatorHelper.comparatorFactory(lambda, false),
+      ComparatorHelper.comparatorFactory(selector, false),
     );
   }
 
-  public groupBy(lambda: Lambda<T, string>) {
+  public groupBy(selector: Lambda<T, string>) {
     const grouping: Grouping<T> = {};
     this.source.forEach((x) => {
-      const key = lambda(x);
+      const key = selector(x);
       if (!Object.prototype.hasOwnProperty.call(grouping, key)) {
         grouping[key] = new List<T>([]);
       }
