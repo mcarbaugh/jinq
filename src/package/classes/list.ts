@@ -11,17 +11,17 @@ export class List<T> extends Enumerable<T> implements IEnumerable<T> {
     super(source);
   }
 
-  public orderBy<K>(lambda: Lambda<T, K>) {
+  public orderBy<K>(selector: Lambda<T, K>) {
     return new OrderedList(
       [...this.source],
-      ComparatorHelper.comparatorFactory(lambda, true),
+      ComparatorHelper.comparatorFactory(selector, true),
     );
   }
 
-  public orderByDescending<K>(lambda: Lambda<T, K>) {
+  public orderByDescending<K>(selector: Lambda<T, K>) {
     return new OrderedList(
       [...this.source],
-      ComparatorHelper.comparatorFactory(lambda, false),
+      ComparatorHelper.comparatorFactory(selector, false),
     );
   }
 
