@@ -1,3 +1,5 @@
+import { ifThrow } from "./ifThrow";
+
 export const isNumeric = (value: any) => {
   return !(typeof(value) === "string"
     || typeof(value) === "boolean"
@@ -16,9 +18,12 @@ export const isBigInt = (value: any) => {
 }
 
 export const checkedNumber = (value: any): number | null => {
-  return isBigInt(value)
-    ? Number(value)
-    : isNumeric(value)
-      ? value as number
-      : null;
+  if (isBigInt(value)) {
+    return Number(value);
+  } else if (isNumeric(value)) {
+    return value as number;
+  } else {
+    ifThrow(value !== null, 'type not supported.')
+    return null;
+  }
 }

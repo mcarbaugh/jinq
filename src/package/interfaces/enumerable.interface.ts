@@ -11,7 +11,7 @@ export interface IEnumerable<T> {
   count(lambda?: Lambda<T, boolean>): number;
   sum(lambda?: Lambda<T, number>): number | undefined;
   average(selector?: Lambda<T, number>): number | null;
-  min(lambda?: Lambda<T, number>): number | undefined;
+  min(lambda?: Lambda<T, number>): number | null;
   max(lambda?: Lambda<T, number>): number | undefined;
   toJSON(): Array<T>;
   toDictionary<K>(

@@ -64,21 +64,18 @@ export class Enumerable<T> {
   }
 
   public min(selector?: Lambda<T, number>) {
-    let min: number | undefined;
-    const source = !selector
-      ? this.source
-      : this.source.map((x) => selector(x));
-
-    source.every((value: T) => {
-      if (typeof value === 'number') {
-        min = min !== undefined ? Math.min(min, value) : value;
-      } else {
-        min = undefined;
-        return false;
+    let min: number | null = null;
+    this.source.forEach(item => {
+      const value = !!selector ? selector(item) : item;
+      const checked = checkedNumber(value);
+      if (checked !== null) {
+        if (min === null) {
+          min = checked;
+        } else if (checked < min) {
+          min = checked;
+        }
       }
-      return true;
     });
-
     return min;
   }
 
