@@ -80,21 +80,18 @@ export class Enumerable<T> {
   }
 
   public max(selector?: Lambda<T, number>) {
-    let max: number | undefined;
-    const source = !selector
-      ? this.source
-      : this.source.map((x) => selector(x));
-
-    source.every((value: T) => {
-      if (typeof value === 'number') {
-        max = max !== undefined ? Math.max(max, value) : value;
-      } else {
-        max = undefined;
-        return false;
+    let max: number | null = null;
+    this.source.forEach(item => {
+      const value = !!selector ? selector(item) : item;
+      const checked = checkedNumber(value);
+      if (checked !== null) {
+        if (max === null) {
+          max = checked;
+        } else if (checked > max) {
+          max = checked;
+        }
       }
-      return true;
     });
-
     return max;
   }
 
