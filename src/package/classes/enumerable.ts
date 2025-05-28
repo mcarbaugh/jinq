@@ -45,22 +45,15 @@ export class Enumerable<T> {
   }
 
   public sum(selector?: Lambda<T, number>) {
-    let sum: number | undefined;
-    const source = !selector
-      ? this.source
-      : this.source.map((x) => selector(x));
-
-    source.every((value: T) => {
-      if (typeof value === 'number') {
-        sum = sum !== undefined ? sum + value : value;
-      } else {
-        sum = undefined;
-        return false;
+    let sum: number = 0;
+    this.source.forEach(item => {
+      const value = !!selector ? selector(item) : item;
+      const checked = checkedNumber(value);
+      if (checked !== null) {
+        sum += checked;
       }
-      return true;
     });
-
-    return sum;
+    return sum
   }
 
   public min(selector?: Lambda<T, number>) {
