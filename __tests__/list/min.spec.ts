@@ -48,6 +48,16 @@ describe('List', () => {
       const result = list.where(x => x.age > 25).min(x => x.age);
       expect(result).toEqual(30);
     });
+    it('chains with .orderBy() and .thenBy()', () => {
+      const list = new List([
+        { firstName: 'John', lastName: 'Smith', age: 44 },
+        { firstName: 'Susy', lastName: 'Q', age: 25 },
+        { firstName: 'Jane', lastName: 'Doe', age: 30 },
+        { firstName: 'Bert', lastName: 'Reynolds', age: null },
+      ]);
+      const result = list.orderBy(x => x.lastName).thenBy(x => x.age).min(x => x.age);
+      expect(result).toEqual(25);
+    });
     it('throws an error when non numeric, non null values appear in the source sequence', () => {
       let threw = false;
       try {
