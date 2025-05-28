@@ -18,11 +18,12 @@ export const isBigInt = (value: any) => {
 }
 
 export const checkedNumber = (value: any): number | null => {
-  return isBigInt(value)
-    ? Number(value)
-    : isNumeric(value)
-      ? value as number
-      : ifThrow(value !== null, 'type not supported.')
-        ? null
-        : null;
+  if (isBigInt(value)) {
+    return Number(value);
+  } else if (isNumeric(value)) {
+    return value as number;
+  } else {
+    ifThrow(value !== null, 'type not supported.')
+    return null;
+  }
 }
