@@ -114,11 +114,11 @@ export class Enumerable<T> {
   ) {
     ifThrow(
       keySelector === null || keySelector === undefined,
-      'lambdaKey is a required parameter.',
+      'keySelector is a required parameter.',
     );
     ifThrow(
       valueSelector === null || valueSelector === undefined,
-      'lambdaValue is a required parameter.',
+      'valueSelector is a required parameter.',
     );
     ifThrow(this.source === null || this.source === undefined, 'Collection is null or undefined.');
     

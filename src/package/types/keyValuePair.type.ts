@@ -1,3 +1,5 @@
+import { ifThrow } from "../utilities/ifThrow";
+
 export type ValueMap<TValue> = { [key: string]: TValue };
 
 export class KeyValuePair<TKey, TValue> {
@@ -5,8 +7,9 @@ export class KeyValuePair<TKey, TValue> {
   private readonly _value: TValue;
 
   constructor(key: TKey, value: TValue) {
-      this._key = key;
-      this._value = value;
+    ifThrow(key === null || key === undefined, 'key cannot be null.');
+    this._key = key;
+    this._value = value;
   }
 
   get key(): TKey {

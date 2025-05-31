@@ -3,7 +3,7 @@ import { List } from "@mcarbaugh/jinq";
 
 describe('orderedList', () => {
   describe('.toDictionary()', () => {
-    it('throws an exception if lambdaKey is not specified', () => {
+    it('throws an exception if keySelector is not specified', () => {
       let threw = false;
       try {
         const dictionary = new List([
@@ -14,11 +14,11 @@ describe('orderedList', () => {
       } catch (error) {
         threw = true;
         expect(error).toBeInstanceOf(Error);
-        expect(error).toHaveProperty('message', 'lambdaKey is a required parameter.');
+        expect(error).toHaveProperty('message', 'keySelector is a required parameter.');
       }
       expect(threw).toEqual(true);
     })
-    it('throws an exception if lambdaValue is not specified', () => {
+    it('throws an exception if valueSelector is not specified', () => {
       let threw = false;
       try {
         const dictionary = new List([
@@ -29,7 +29,7 @@ describe('orderedList', () => {
       } catch (error) {
         threw = true;
         expect(error).toBeInstanceOf(Error);
-        expect(error).toHaveProperty('message', 'lambdaValue is a required parameter.');
+        expect(error).toHaveProperty('message', 'valueSelector is a required parameter.');
       }
       expect(threw).toEqual(true);
     })
