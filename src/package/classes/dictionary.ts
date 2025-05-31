@@ -26,8 +26,16 @@ export class Dictionary<TKey, TValue> {
     return Object.prototype.hasOwnProperty.call(this._source, key);
   }
 
-  public where(predicate: Lambda<TValue, boolean>) {
-    throw new Error('not implemented');
+  public where(predicate: Lambda<KeyValuePair<string, TValue>, boolean>) {
+    ifThrow(!predicate, 'predicate is required.');
+    const filtered = new Dictionary<TKey, TValue>();
+    Object.entries(this._source).forEach(entry => {
+      const match = predicate(entry[1]);
+      if (match) {
+        filtered.set(entry[1].key, entry[1].value);
+      }
+    });
+    return filtered;
   }
   
   public toJSON() {
