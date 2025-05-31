@@ -1,1 +1,22 @@
-export type KeyValuePair<TValue> = { [key: string]: TValue };
+import { ifThrow } from "../utilities/ifThrow";
+
+export type ValueMap<TValue> = { [key: string]: TValue };
+
+export class KeyValuePair<TKey, TValue> {
+  private readonly _key: TKey;
+  private readonly _value: TValue;
+
+  constructor(key: TKey, value: TValue) {
+    ifThrow(key === null || key === undefined, 'key cannot be null.');
+    this._key = key;
+    this._value = value;
+  }
+
+  get key(): TKey {
+    return this._key;
+  }
+
+  get value(): TValue {
+    return this._value;
+  }
+}

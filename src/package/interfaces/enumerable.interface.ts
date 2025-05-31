@@ -17,6 +17,6 @@ export interface IEnumerable<T> {
   toDictionary<K>(
     lambdaKey: Lambda<T, string>,
     lambdaValue: Lambda<T, K>,
-  ): Dictionary<K>;
+  ): Dictionary<string, K>;
   groupBy(lambda: Lambda<T, string>): Grouping<T>;
 }

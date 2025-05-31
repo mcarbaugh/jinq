@@ -76,7 +76,7 @@ describe('list', () => {
         abcd: { name: 'Bob', age: 55 },
       });
     });
-    it('throws an exception if lambdaKey is not specified', () => {
+    it('throws an exception if keySelector is not specified', () => {
       let threw = false;
       try {
         const list = new List([
@@ -86,11 +86,11 @@ describe('list', () => {
       } catch (error) {
         threw = true;
         expect(error).toBeInstanceOf(Error);
-        expect(error).toHaveProperty('message', 'lambdaKey is a required parameter.');
+        expect(error).toHaveProperty('message', 'keySelector is a required parameter.');
       }
       expect(threw).toEqual(true);
     })
-    it('throws an exception if lambdaValue is not specified', () => {
+    it('throws an exception if valueSelector is not specified', () => {
       let threw = false;
       try {
         const list = new List([
@@ -100,7 +100,7 @@ describe('list', () => {
       } catch (error) {
         threw = true;
         expect(error).toBeInstanceOf(Error);
-        expect(error).toHaveProperty('message', 'lambdaValue is a required parameter.');
+        expect(error).toHaveProperty('message', 'valueSelector is a required parameter.');
       }
       expect(threw).toEqual(true);
     })
@@ -115,7 +115,7 @@ describe('list', () => {
       } catch (error) {
         threw = true;
         expect(error).toBeInstanceOf(Error);
-        expect(error).toHaveProperty('message', `Duplicate key green detected.`);
+        expect(error).toHaveProperty('message', `Key green has already been added.`);
       }
       expect(threw).toEqual(true);
     })
