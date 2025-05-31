@@ -30,9 +30,9 @@ describe('dictionary', () => {
         ]);
         
         const result = list
-        .toDictionary(x => x.age, x => x)
-        .where(x => x.key > 30)
-        .toJSON();
+          .toDictionary(x => x.age, x => x)
+          .where(x => x.key > 30)
+          .toJSON();
 
       } catch (error) {
         threw = true;
