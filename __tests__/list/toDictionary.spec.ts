@@ -115,7 +115,7 @@ describe('list', () => {
       } catch (error) {
         threw = true;
         expect(error).toBeInstanceOf(Error);
-        expect(error).toHaveProperty('message', `Duplicate key green detected.`);
+        expect(error).toHaveProperty('message', `Key green has already been added.`);
       }
       expect(threw).toEqual(true);
     })

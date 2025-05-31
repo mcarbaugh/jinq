@@ -108,28 +108,24 @@ export class Enumerable<T> {
       : null;
   }
 
-  public toDictionary<K>(
-    lambdaKey: Lambda<T, string>,
-    lambdaValue: Lambda<T, K>,
+  public toDictionary<TValue>(
+    keySelector: Lambda<T, string>,
+    valueSelector: Lambda<T, TValue>,
   ) {
     ifThrow(
-      lambdaKey === null || lambdaKey === undefined,
+      keySelector === null || keySelector === undefined,
       'lambdaKey is a required parameter.',
     );
     ifThrow(
-      lambdaValue === null || lambdaValue === undefined,
+      valueSelector === null || valueSelector === undefined,
       'lambdaValue is a required parameter.',
     );
     ifThrow(this.source === null || this.source === undefined, 'Collection is null or undefined.');
     
-    const dictionary = new Dictionary<K>({});
+    const dictionary = new Dictionary<string, TValue>();
     this.source.forEach((x) => {
-      const key = lambdaKey(x);
-      const item = lambdaValue(x);
-      ifThrow(
-        Object.prototype.hasOwnProperty.call(dictionary.toJSON(), key),
-        `Duplicate key ${key} detected.`,
-      );
+      const key = keySelector(x);
+      const item = valueSelector(x);
       dictionary.set(key, item);
     });
 
